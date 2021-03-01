@@ -1,1 +1,1 @@
-# Sword vs Horde
+# Sword vs. Horde
