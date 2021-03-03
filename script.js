@@ -51,9 +51,9 @@ class Enemy {
     constructor(x, y){
         this.x = x;
         this.y = y;
-        this.width = 16;
-        this.height = 16;
-        this.speed = Math.random() * 0.5 + 0.5;
+        this.width = 8;
+        this.height = 8;
+        this.speed = Math.random() * 0.5 + 1;
         this.movement = this.speed;
         this.health = 100;
     }
@@ -84,6 +84,12 @@ function handleEnemies(){
             enemies[i].health = 0;
         }
 
+        // [TEST]
+        if (collision(village, enemies[i])) {
+            gameOver = true; 
+        }
+
+        // Note: takes enemy out if enemy health = 0
         if (enemies[i] && enemies[i].health <= 0){
             enemies.splice(i, 1);
             i--
@@ -113,6 +119,28 @@ window.addEventListener("keyup", function(e) {
     delete keys[e.keyCode];
     player.moving = false;
     player.attacking = false;
+    // [TEMP][WORKS] snaps back user to "moving" spritesheet if key up (aka idle)
+    if (player.facing === "up") {
+        playerSprite.src = "./test/swordsman_moving.png";
+        player.width = 16;
+        player.frameY = 2;
+        player.frameX = 0;
+    } else if (player.facing === "left") {
+        playerSprite.src = "./test/swordsman_moving.png";
+        player.width = 16;
+        player.frameY = 3;
+        player.frameX = 0;
+    } else if (player.facing === "down") {
+        playerSprite.src = "./test/swordsman_moving.png";
+        player.width = 16;
+        player.frameY = 0;
+        player.frameX = 0;
+    } else if (player.facing === "right") {
+        playerSprite.src = "./test/swordsman_moving.png";
+        player.width = 16;
+        player.frameY = 1;
+        player.frameX = 0;
+    }
 });
 
 function movePlayer() {
