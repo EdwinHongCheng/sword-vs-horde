@@ -2,6 +2,8 @@ const canvas = document.getElementById('canvas1');
 const ctx = canvas.getContext('2d');
 canvas.width = 800;
 canvas.height = 500;
+let gameOver = false;
+let frame = 0;
 
 const keys = [];
 
@@ -15,18 +17,33 @@ const player = {
     frameY: 0,
     speed: 9,
     moving: false,
-    // [TEST] attacking - facing direction - determines attack animation
+    // [TEST] attacking: facing direction - determines attack animation
     facing: "down",
     attacking: false
 }
 
-const playerSprite = new Image();
+// [WORKS] Village
+class Village {
+    constructor(x, y){
+        this.x = x;
+        this.y = y;
+        this.width = 80;
+        this.height = 80;
+    }
+}
 
+const playerSprite = new Image();
 playerSprite.src = "./test/swordsman_moving.png";
 
 const background = new Image();
-// [NOTE] change back to background.jpg later
 background.src = "./test/background.jpg";
+
+// [TEST] village - can define x + y coordinates
+// - NOTE: for later levels -> use an array -> can map thru array to draw all?
+let village = new Village(300, 300);
+const villageSprite = new Image();
+villageSprite.src = "./test/village.png";
+
 
 // s = source X, Y, width, height
 // d = destination X, Y, width, height
@@ -44,6 +61,7 @@ window.addEventListener("keydown", function(e) {
 window.addEventListener("keyup", function(e) {
     delete keys[e.keyCode];
     player.moving = false;
+    player.attacking = false;
 });
 
 function movePlayer() {
@@ -55,7 +73,6 @@ function movePlayer() {
         player.frameY = 2;
         player.moving = true;
         player.facing = "up";
-        console.log(player.facing);
     }
     // [Left] "A"
     if (keys[65] && player.x > 0 + (player.width / 2)) {
@@ -84,7 +101,32 @@ function movePlayer() {
         player.moving = true;
         player.facing = "right";
     }
+
+    // [WORKS] Flash Step
+    if (keys[80]) {
+        if (player.facing === "up" && !player.attacking) {
+            if (player.y - (5 * player.speed) > 0)
+            player.y -= 5 * player.speed;
+        } else if (player.facing === "left" && !player.attacking) {
+            if (player.x - (5 * player.speed) > 0 + (player.width / 2)) {
+                player.x -= 5 * player.speed;
+            }
+        } else if (player.facing === "down" && !player.attacking) {
+            if (player.y + (5 * player.speed) < canvas.height - player.height) {
+                player.y += 5 * player.speed;
+            } 
+        } else if (player.facing === "right" && !player.attacking) {
+            if (player.x + (5 * player.speed) < canvas.width - player.width) {
+                player.x += 5 * player.speed;
+            }
+        }
+    }
+
+
+
     // [TEST] Attack Animation - sorta works, cut spritesheet tho
+    // key: "O"
+    // [NOTE = player.width, etc = temporary i think]
     if (keys[79]) {
         player.attacking = true;
         player.width = 32;
@@ -116,7 +158,8 @@ function startAnimating(fps) {
 }
 
 function animate() {
-    requestAnimationFrame(animate);
+    frame++;
+    if (!gameOver) requestAnimationFrame(animate);
     now = Date.now();
     elapsed = now - then;
     if (elapsed > fpsInterval) {
@@ -129,6 +172,15 @@ function animate() {
             player.width, player.height,
             player.x, player.y, player.width, player.height
         );
+
+        // [TEST] draw Village
+        ctx.drawImage(villageSprite, village.x, village.y, village.width, village.height);
+
+        // [WORKS] Game Over if Player touches Village
+        if (collision(player, village)) {
+            gameOver = true;
+        }
+
         movePlayer();
         handlePlayerFrame();
     }
@@ -136,3 +188,14 @@ function animate() {
 
 // [NOTE] change argument - larger number = more FPS = faster
 startAnimating(20);
+
+
+// [WORKS] utilities (from Tower Defense)
+function collision(first, second) {
+if( !(first.x > second.x + second.width ||
+    first.x + first.width < second.x ||
+    first.y > second.y + second.height ||
+    first.y + first.height < second.y)) {
+        return true;
+    };
+}
