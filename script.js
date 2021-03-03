@@ -80,9 +80,9 @@ function handleEnemies(){
         enemies[i].draw();
 
         // [WORKS]
-        if (collision(player, enemies[i])) {
-            enemies[i].health = 0;
-        }
+        // if (collision(player, enemies[i])) {
+        //     enemies[i].health = 0;
+        // }
 
         // [TEST]
         if (collision(village, enemies[i])) {
@@ -96,6 +96,72 @@ function handleEnemies(){
         }
     }
 };
+
+
+// [TEST] Sword Attack "Beam" ------------------------------------------------->
+// - note: from "Tower Defense" - "Projectiles"
+
+const projectiles = [];
+
+class Projectile {
+    constructor(x, y){
+        // [TEST] change "x" + "y" depending on player.facing
+        // NOTE: will have to readjust after I get updated spritesheet
+        if (player.facing === "right") {
+            x += 32;
+            y += 0;
+        } else if (player.facing === "left") {
+            x -= 32;
+            y -= 0;
+        } else if (player.facing === "up") {
+            x += 0;
+            y -= 32;
+        } else if (player.facing === "down") {
+            x += 0;
+            y += 32;
+        }
+
+        this.x = x;
+        this.y = y;
+        this.width = 32;
+        this.height = 32;
+        this.speed = 3;
+        this.power = 100;
+        // [TEST] want to "instantly" remove projectile -> melee attack
+        this.remove = false;
+    }
+    update(){
+        // [TEST] want to "instantly" remove projectile -> melee attack
+        this.remove = true;
+    }
+    draw(){
+        ctx.fillStyle = 'yellow';
+        ctx.fillRect(this.x, this.y, this.width, this.height);
+    }
+}
+function handleProjectiles(){
+    for (let i = 0; i < projectiles.length; i++){
+        projectiles[i].update();
+        projectiles[i].draw();
+        for (let y = 0; y < enemies.length; y++){
+            if (enemies[y] && projectiles[i] && collision(projectiles[i], enemies[y])){
+                enemies[y].health -= projectiles[i].power;
+                projectiles.splice(i, 1);
+                i--;
+            }
+        };
+        if (projectiles[i] && projectiles[i].x > canvas.width){
+            projectiles.splice(i, 1);
+            i--;
+        }
+
+        // [TEST] "instantly" remove projectile
+        if (projectiles[i] && projectiles[i].remove){
+            projectiles.splice(i, 1);
+            i--;
+        }
+    }
+}
 
 
 
@@ -210,12 +276,24 @@ function movePlayer() {
         player.width = 32;
         if (player.facing === "down") {
             player.frameY = 0;
+            if (projectiles.length === 0) { 
+                projectiles.push(new Projectile(player.x, player.y));
+            }
         } else if (player.facing === "up") {
             player.frameY = 1;
+            if (projectiles.length === 0) { 
+                projectiles.push(new Projectile(player.x, player.y));
+            }
         } else if (player.facing === "left") {
             player.frameY = 3;
+            if (projectiles.length === 0) { 
+                projectiles.push(new Projectile(player.x, player.y));
+            }
         } else if (player.facing === "right") {
             player.frameY = 2;
+            if (projectiles.length === 0) { 
+                projectiles.push(new Projectile(player.x, player.y));
+            }
         }
         playerSprite.src = "./test/swordsman_attacking.png";
     }
@@ -255,8 +333,12 @@ function animate() {
         // [WORKS] draw Village
         ctx.drawImage(villageSprite, village.x, village.y, village.width, village.height);
 
-        // [TEST] draw Enemies
+        // [WORKS] draw Enemies
         handleEnemies();
+
+        // [TEST] draw projectiles
+        handleProjectiles();
+
 
         // [WORKS] Game Over if Player touches Village
         if (collision(player, village)) {
