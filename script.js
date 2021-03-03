@@ -9,8 +9,8 @@ const player = {
     // [NOTE] 1st 2 values below = starting position (ex. 200, 200)
     x: 200,
     y: 300,
-    width: 40,
-    height: 72,
+    width: 16,
+    height: 32,
     frameX: 0,
     frameY: 0,
     speed: 9,
@@ -18,10 +18,10 @@ const player = {
 }
 
 const playerSprite = new Image();
-playerSprite.src = "./test/chewie.png";
+playerSprite.src = "./test/swordsman_moving.png";
 const background = new Image();
 // [NOTE] change back to background.jpg later
-background.src = "./test/background1.png";
+background.src = "./test/background.jpg";
 
 // s = source X, Y, width, height
 // d = destination X, Y, width, height
@@ -45,13 +45,13 @@ function movePlayer() {
     // [Up]
     if (keys[38] && player.y > 0) {
         player.y -= player.speed;
-        player.frameY = 3;
+        player.frameY = 2;
         player.moving = true;
     }
     // [Left]
     if (keys[37] && player.x > 0) {
         player.x -= player.speed;
-        player.frameY = 1;
+        player.frameY = 3;
         player.moving = true;
     }
     // Down
@@ -63,7 +63,7 @@ function movePlayer() {
     // Right
     if (keys[39] && player.x < canvas.width - player.width) {
         player.x += player.speed;
-        player.frameY = 2;
+        player.frameY = 1;
         player.moving = true;
     }
 }
