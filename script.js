@@ -14,7 +14,9 @@ const player = {
     frameX: 0,
     frameY: 0,
     speed: 9,
-    moving: false
+    moving: false,
+    // [TEST] facing direction - determines attack animation
+    facing: "down"
 }
 
 const playerSprite = new Image();
@@ -42,29 +44,37 @@ window.addEventListener("keyup", function(e) {
 });
 
 function movePlayer() {
-    // [Up]
-    if (keys[38] && player.y > 0) {
+    // [Up] "W"
+    if (keys[87] && player.y > 0) {
         player.y -= player.speed;
         player.frameY = 2;
         player.moving = true;
+        player.facing = "up";
+        console.log(player.facing);
     }
-    // [Left]
-    if (keys[37] && player.x > 0) {
+    // [Left] "A"
+    if (keys[65] && player.x > 0 + (player.width / 2)) {
         player.x -= player.speed;
         player.frameY = 3;
         player.moving = true;
+        player.facing = "left";
     }
-    // Down
-    if (keys[40] && player.y < canvas.height - player.height) {
+    // [Down] "S"
+    if (keys[83] && player.y < canvas.height - player.height) {
         player.y += player.speed;
         player.frameY = 0;
         player.moving = true;
+        player.facing = "down";
     }
-    // Right
-    if (keys[39] && player.x < canvas.width - player.width) {
+    // [Right] "D"
+    if (keys[68] && player.x < canvas.width - player.width) {
         player.x += player.speed;
         player.frameY = 1;
         player.moving = true;
+        player.facing = "right";
+
+    // [TEST] Attack Animation
+
     }
 }
 
@@ -102,4 +112,4 @@ function animate() {
 }
 
 // [NOTE] change argument - larger number = more FPS = faster
-startAnimating(30);
+startAnimating(20);
