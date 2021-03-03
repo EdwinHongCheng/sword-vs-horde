@@ -44,6 +44,57 @@ let village = new Village(300, 300);
 const villageSprite = new Image();
 villageSprite.src = "./test/village.png";
 
+// ---------------------------------------------------------------------------->
+
+// [TEMP][TEST] Enemies (c+p from Tower Defense for now)
+class Enemy {
+    constructor(x, y){
+        this.x = x;
+        this.y = y;
+        this.width = 16;
+        this.height = 16;
+        this.speed = Math.random() * 0.5 + 0.5;
+        this.movement = this.speed;
+        this.health = 100;
+    }
+    update(){
+        this.x -= this.movement;
+    }
+    draw(){
+        ctx.fillStyle = 'red';
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.width, 0, Math.PI * 2);
+        ctx.fill();
+    }
+}
+
+// [TEST] enemies in an array
+let enemies = [];
+let testDummy = new Enemy(canvas.width, 350);
+enemies.push(testDummy);
+
+// [TEST] handle enemies array - remove enemy if attacked?
+function handleEnemies(){
+    for (let i = 0; i < enemies.length; i++){
+        enemies[i].update();
+        enemies[i].draw();
+
+        // [WORKS]
+        if (collision(player, enemies[i])) {
+            enemies[i].health = 0;
+        }
+
+        if (enemies[i] && enemies[i].health <= 0){
+            enemies.splice(i, 1);
+            i--
+        }
+    }
+};
+
+
+
+
+// ---------------------------------------------------------------------------->
 
 // s = source X, Y, width, height
 // d = destination X, Y, width, height
@@ -103,7 +154,8 @@ function movePlayer() {
     }
 
     // [WORKS] Flash Step
-    if (keys[80]) {
+    // key: "L"
+    if (keys[76]) {
         if (player.facing === "up" && !player.attacking) {
             if (player.y - (5 * player.speed) > 0)
             player.y -= 5 * player.speed;
@@ -123,11 +175,9 @@ function movePlayer() {
     }
 
 
-
-    // [TEST] Attack Animation - sorta works, cut spritesheet tho
-    // key: "O"
-    // [NOTE = player.width, etc = temporary i think]
-    if (keys[79]) {
+    // [TEMP] [TEST] Attack Animation - sorta works, cut spritesheet tho
+    // key: "K"
+    if (keys[75]) {
         player.attacking = true;
         player.width = 32;
         if (player.facing === "down") {
@@ -160,6 +210,7 @@ function startAnimating(fps) {
 function animate() {
     frame++;
     if (!gameOver) requestAnimationFrame(animate);
+
     now = Date.now();
     elapsed = now - then;
     if (elapsed > fpsInterval) {
@@ -173,8 +224,11 @@ function animate() {
             player.x, player.y, player.width, player.height
         );
 
-        // [TEST] draw Village
+        // [WORKS] draw Village
         ctx.drawImage(villageSprite, village.x, village.y, village.width, village.height);
+
+        // [TEST] draw Enemies
+        handleEnemies();
 
         // [WORKS] Game Over if Player touches Village
         if (collision(player, village)) {
@@ -186,7 +240,8 @@ function animate() {
     }
 }
 
-// [NOTE] change argument - larger number = more FPS = faster
+// [NOTE] arg = FPS
+// - larger number = more FPS = faster
 startAnimating(20);
 
 
