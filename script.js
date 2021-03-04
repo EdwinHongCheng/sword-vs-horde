@@ -163,7 +163,7 @@ function handleProjectiles(){
             i--;
         }
 
-        // [TEST] "instantly" remove projectile
+        // [TEST] "instantly" remove projectile -> melee attack
         if (projectiles[i] && projectiles[i].remove){
             projectiles.splice(i, 1);
             i--;
