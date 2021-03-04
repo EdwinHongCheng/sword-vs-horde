@@ -17,10 +17,14 @@ const player = {
     frameY: 0,
     speed: 9,
     moving: false,
-    // [TEST] attacking: facing direction - determines attack animation
     facing: "down",
     attacking: false,
-    dashed: false
+    dashed: false,
+    // [TEST] hero hitbox
+    deadspaceX: 8,
+    deadspaceY: 6,
+    hitboxX: 16,
+    hitboxY: 20
 }
 
 // [WORKS] Village
@@ -30,6 +34,11 @@ class Village {
         this.y = y;
         this.width = 80;
         this.height = 80;
+    // [TEST] village hitbox - giving the deadspace "margin" 2px each side
+        this.deadspaceX = 2;
+        this.deadspaceY = 2;
+        this.hitboxX = 76;
+        this.hitboxY = 76;
     }
 }
 
@@ -52,20 +61,32 @@ class Enemy {
     constructor(x, y){
         this.x = x;
         this.y = y;
-        this.width = 8;
-        this.height = 8;
+        this.width = 32;
+        this.height = 32;
         this.speed = Math.random() * 0.5 + 1;
         this.movement = this.speed;
         this.health = 100;
+        // [TEST] enemy hitbox (not sure about values right now tbh)
+        this.deadspaceX = 0;
+        this.deadspaceY = 0;
+        this.hitboxX = 32;
+        this.hitboxY = 32;
     }
     update(){
         this.x -= this.movement;
     }
     draw(){
-        ctx.fillStyle = 'red';
+        // ctx.fillStyle = 'red';
+        // ctx.beginPath();
+        // ctx.arc(this.x, this.y, this.width, 0, Math.PI * 2);
+        // ctx.fill();
+
+        // [TEST] ctx.rect(x, y, width, height);
         ctx.beginPath();
-        ctx.arc(this.x, this.y, this.width, 0, Math.PI * 2);
+        ctx.rect(this.x, this.y, this.width, this.height);
+        ctx.fillStyle = "red";
         ctx.fill();
+        ctx.closePath();
     }
 }
 
@@ -81,13 +102,13 @@ function handleEnemies(){
         enemies[i].draw();
 
         // [WORKS]
-        // if (collision(player, enemies[i])) {
-        //     enemies[i].health = 0;
-        // }
-
-        // [TEST]
-        if (collision(village, enemies[i])) {
+        if (collision3(village, enemies[i])) {
             gameOver = true; 
+        }
+
+        // *** [TEST] collision3
+        if (collision3(player, enemies[i])) {
+            gameOver = true;
         }
 
         // Note: takes enemy out if enemy health = 0
@@ -109,23 +130,23 @@ class Projectile {
         // [WIP][TEST] change "x" + "y" depending on player.facing
         // NOTE: will have to readjust after I get updated spritesheet
         if (player.facing === "right") {
-            x += 32;
+            x += 24;
             y += 0;
             this.width = 16;
             this.height = 32;
         } else if (player.facing === "left") {
-            x -= 16;
+            x -= 8;
             y -= 0;
             this.width = 16;
             this.height = 32;
         } else if (player.facing === "up") {
             x += 0;
-            y -= 16;
+            y -= 6;
             this.width = 32;
             this.height = 16;
         } else if (player.facing === "down") {
             x += 0;
-            y += 32;
+            y += 26;
             this.width = 32;
             this.height = 16;
         }
@@ -352,7 +373,12 @@ function animate() {
 
 
         // [WORKS] Game Over if Player touches Village
-        if (collision(player, village)) {
+        // if (collision(player, village)) {
+        //     gameOver = true;
+        // }
+
+        // *** [TEST]
+        if (collision2(village, player)) {
             gameOver = true;
         }
 
@@ -375,3 +401,33 @@ if( !(first.x > second.x + second.width ||
         return true;
     };
 }
+
+// [TEST] hitbox collision: using "deadspaceX/Y" + "hitboxX/Y"
+// note: only 2nd will test out hero's hitboxes
+function collision2(first, second) {
+    // 1st test: if "first" = on right side of hitbox
+if( !(first.x > second.x + second.deadspaceX + second.hitboxX ||
+    // 2nd test: if "first" = on left side of hitbox
+    first.x + first.width < second.x + second.deadspaceX ||
+    // 3rd test: if "first" = below hitbox
+    first.y > second.y + second.deadspaceY + second.hitboxY ||
+    // 4th test: if "first" = above hitbox
+    first.y + first.height < second.y + second.deadspaceY)) {
+        return true;
+    };
+}
+
+// [TEST] both args has deadspace + hitbox X + Y
+function collision3(first, second) {
+    // [Good] 1st test: if "first" = on right side of second's hitbox
+if( !(first.x + first.deadspaceX > second.x + second.deadspaceX + second.hitboxX ||
+    // [Good] 2nd test: if "first" = on left side of second's hitbox
+    first.x + first.deadspaceX + first.hitboxX < second.x + second.deadspaceX ||
+    // [Test] 3rd test: if "first" = below second's hitbox
+    first.y + first.deadspaceY > second.y + second.deadspaceY + second.hitboxY ||
+    // [Test] 4th test: if "first" = above second's hitbox
+    first.y + first.deadspaceY + first.hitboxY < second.y + second.deadspaceY)) {
+        return true;
+    };
+}
+
