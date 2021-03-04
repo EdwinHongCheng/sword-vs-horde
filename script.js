@@ -11,7 +11,7 @@ const player = {
     // [NOTE] 1st 2 values below = starting position (ex. 200, 200)
     x: 200,
     y: 300,
-    width: 16,
+    width: 32,
     height: 32,
     frameX: 0,
     frameY: 0,
@@ -34,7 +34,7 @@ class Village {
 }
 
 const playerSprite = new Image();
-playerSprite.src = "./test/swordsman_moving.png";
+playerSprite.src = "./test/swordsman.png";
 
 const background = new Image();
 background.src = "./test/background.jpg";
@@ -197,23 +197,23 @@ window.addEventListener("keyup", function(e) {
 
     // [TEMP][WORKS] snaps back user to "moving" spritesheet if key up (aka idle)
     if (player.facing === "up") {
-        playerSprite.src = "./test/swordsman_moving.png";
-        player.width = 16;
+        playerSprite.src = "./test/swordsman.png";
+
         player.frameY = 2;
         player.frameX = 0;
     } else if (player.facing === "left") {
-        playerSprite.src = "./test/swordsman_moving.png";
-        player.width = 16;
+        playerSprite.src = "./test/swordsman.png";
+
         player.frameY = 3;
         player.frameX = 0;
     } else if (player.facing === "down") {
-        playerSprite.src = "./test/swordsman_moving.png";
-        player.width = 16;
+        playerSprite.src = "./test/swordsman.png";
+
         player.frameY = 0;
         player.frameX = 0;
     } else if (player.facing === "right") {
-        playerSprite.src = "./test/swordsman_moving.png";
-        player.width = 16;
+        playerSprite.src = "./test/swordsman.png";
+
         player.frameY = 1;
         player.frameX = 0;
     }
@@ -222,8 +222,7 @@ window.addEventListener("keyup", function(e) {
 function movePlayer() {
     // [Up] "W"
     if (keys[87] && player.y > 0) {
-        playerSprite.src = "./test/swordsman_moving.png";
-        player.width = 16;
+        playerSprite.src = "./test/swordsman.png";
         player.y -= player.speed;
         player.frameY = 2;
         player.moving = true;
@@ -231,8 +230,7 @@ function movePlayer() {
     }
     // [Left] "A"
     if (keys[65] && player.x > 0 + (player.width / 2)) {
-        playerSprite.src = "./test/swordsman_moving.png";
-        player.width = 16;
+        playerSprite.src = "./test/swordsman.png";
         player.x -= player.speed;
         player.frameY = 3;
         player.moving = true;
@@ -240,8 +238,7 @@ function movePlayer() {
     }
     // [Down] "S"
     if (keys[83] && player.y < canvas.height - player.height) {
-        playerSprite.src = "./test/swordsman_moving.png";
-        player.width = 16;
+        playerSprite.src = "./test/swordsman.png";
         player.y += player.speed;
         player.frameY = 0;
         player.moving = true;
@@ -249,8 +246,7 @@ function movePlayer() {
     }
     // [Right] "D"
     if (keys[68] && player.x < canvas.width - player.width) {
-        playerSprite.src = "./test/swordsman_moving.png";
-        player.width = 16;
+        playerSprite.src = "./test/swordsman.png";
         player.x += player.speed;
         player.frameY = 1;
         player.moving = true;
@@ -291,27 +287,26 @@ function movePlayer() {
         player.attacking = true;
         player.width = 32;
         if (player.facing === "down") {
-            player.frameY = 0;
+            player.frameY = 4;
             if (projectiles.length === 0) { 
                 projectiles.push(new Projectile(player.x, player.y));
             }
         } else if (player.facing === "up") {
-            player.frameY = 1;
+            player.frameY = 5;
             if (projectiles.length === 0) { 
                 projectiles.push(new Projectile(player.x, player.y));
             }
         } else if (player.facing === "left") {
-            player.frameY = 3;
+            player.frameY = 7;
             if (projectiles.length === 0) { 
                 projectiles.push(new Projectile(player.x, player.y));
             }
         } else if (player.facing === "right") {
-            player.frameY = 2;
+            player.frameY = 6;
             if (projectiles.length === 0) { 
                 projectiles.push(new Projectile(player.x, player.y));
             }
         }
-        playerSprite.src = "./test/swordsman_attacking.png";
     }
 }
 
