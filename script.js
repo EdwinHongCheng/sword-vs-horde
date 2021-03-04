@@ -19,7 +19,8 @@ const player = {
     moving: false,
     // [TEST] attacking: facing direction - determines attack animation
     facing: "down",
-    attacking: false
+    attacking: false,
+    dashed: false
 }
 
 // [WORKS] Village
@@ -192,7 +193,8 @@ window.addEventListener("keydown", function(e) {
 window.addEventListener("keyup", function(e) {
     delete keys[e.keyCode];
     player.moving = false;
-    player.attacking = false;
+    player.attacking = false; 
+
     // [TEMP][WORKS] snaps back user to "moving" spritesheet if key up (aka idle)
     if (player.facing === "up") {
         playerSprite.src = "./test/swordsman_moving.png";
@@ -258,23 +260,27 @@ function movePlayer() {
     // [WORKS] Flash Step
     // key: "L"
     if (keys[76]) {
-        if (player.facing === "up" && !player.attacking) {
+        if (player.facing === "up" && !player.attacking && !player.dashed) {
             if (player.y - (10 * player.speed) > 0)
             player.y -= 10 * player.speed;
-        } else if (player.facing === "left" && !player.attacking) {
+            player.dashed = true;
+        } else if (player.facing === "left" && !player.attacking && !player.dashed) {
             if (player.x - (10 * player.speed) > 0 + (player.width / 2)) {
                 player.x -= 10 * player.speed;
+                player.dashed = true;
             }
-        } else if (player.facing === "down" && !player.attacking) {
+        } else if (player.facing === "down" && !player.attacking && !player.dashed) {
             if (player.y + (10 * player.speed) < canvas.height - player.height) {
                 player.y += 10 * player.speed;
-                
+                player.dashed = true;
             } 
-        } else if (player.facing === "right" && !player.attacking) {
+        } else if (player.facing === "right" && !player.attacking && !player.dashed) {
             if (player.x + (10 * player.speed) < canvas.width - player.width) {
                 player.x += 10 * player.speed;
-                
+                player.dashed = true;
             }
+        } else {
+            player.dashed = false;
         }
     }
 
@@ -346,7 +352,7 @@ function animate() {
         // [WORKS] draw Enemies
         handleEnemies();
 
-        // [TEST] draw projectiles
+        // [WORKS] draw projectiles
         handleProjectiles();
 
 
