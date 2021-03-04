@@ -259,19 +259,21 @@ function movePlayer() {
     // key: "L"
     if (keys[76]) {
         if (player.facing === "up" && !player.attacking) {
-            if (player.y - (5 * player.speed) > 0)
-            player.y -= 5 * player.speed;
+            if (player.y - (10 * player.speed) > 0)
+            player.y -= 10 * player.speed;
         } else if (player.facing === "left" && !player.attacking) {
-            if (player.x - (5 * player.speed) > 0 + (player.width / 2)) {
-                player.x -= 5 * player.speed;
+            if (player.x - (10 * player.speed) > 0 + (player.width / 2)) {
+                player.x -= 10 * player.speed;
             }
         } else if (player.facing === "down" && !player.attacking) {
-            if (player.y + (5 * player.speed) < canvas.height - player.height) {
-                player.y += 5 * player.speed;
+            if (player.y + (10 * player.speed) < canvas.height - player.height) {
+                player.y += 10 * player.speed;
+                
             } 
         } else if (player.facing === "right" && !player.attacking) {
-            if (player.x + (5 * player.speed) < canvas.width - player.width) {
-                player.x += 5 * player.speed;
+            if (player.x + (10 * player.speed) < canvas.width - player.width) {
+                player.x += 10 * player.speed;
+                
             }
         }
     }
