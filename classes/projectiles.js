@@ -9,23 +9,23 @@ class Projectile {
         if (player.facing === "right") {
             x += 24;
             y += 0;
-            this.width = 16;
+            this.width = 32;
             this.height = 32;
         } else if (player.facing === "left") {
-            x -= 8;
+            x -= 24;
             y -= 0;
-            this.width = 16;
+            this.width = 32;
             this.height = 32;
         } else if (player.facing === "up") {
             x += 0;
-            y -= 6;
+            y -= 26;
             this.width = 32;
-            this.height = 16;
+            this.height = 32;
         } else if (player.facing === "down") {
             x += 0;
             y += 26;
             this.width = 32;
-            this.height = 16;
+            this.height = 32;
         }
 
         this.x = x;
