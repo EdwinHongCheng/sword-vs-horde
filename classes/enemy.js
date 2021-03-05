@@ -8,6 +8,7 @@ let canvasHeight = 500;
 
 class Enemy {
     constructor(x, y){
+        // [NOTE] "x - 17" cuz Enemy hitbox is 16px (so, 16 + 1 = 17)
         this.x = x - 17;
         this.y = y;
         this.width = 16;

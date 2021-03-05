@@ -15,7 +15,8 @@ background.src = "./images/background.jpg";
 
 // ---------------------------------------------------------------------------->
 
-
+// [REMOVE LATER] - might wanna spawn enemy w "if frame === 50" or something
+// - goal: just have the 1st enemy spawn super early
 
 let testDummy = new Enemy(canvas.width, 350);
 enemies.push(testDummy);
