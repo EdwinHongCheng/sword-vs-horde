@@ -12,7 +12,7 @@ let score = 0;
 let enemiesInterval = 50;
 
 const background = new Image();
-background.src = "./images/background2.png";
+background.src = "./images/background.png";
 // background.src = "./images/background.jpg";
 
 

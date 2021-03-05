@@ -3,6 +3,11 @@
 
 const projectiles = [];
 
+
+// [TEST] "Projectile" sprites
+const attack1 = new Image();
+attack1.src = "./images/fire.png";
+
 class Projectile {
     constructor(x, y){
         // [WORKS] change "x" + "y" depending on player.facing
@@ -36,14 +41,28 @@ class Projectile {
         this.power = 100;
         // [TEST] want to "instantly" remove projectile -> melee attack
         this.remove = false;
+
+        // [TEST]
+        this.attackType = attack1;
+        this.frameX = 0;
+        this.frameY = 0;
+        this.minFrame = 0;
+        this.maxFrame = 3;
+        this.spriteWidth = 32;
+        this.spriteHeight = 32;
     }
     update(){
         // [TEST] want to "instantly" remove projectile -> melee attack
         this.remove = true;
     }
     draw(){
-        ctx.fillStyle = 'yellow';
-        ctx.fillRect(this.x, this.y, this.width, this.height);
+        // ctx.fillStyle = 'yellow';
+        // ctx.fillRect(this.x, this.y, this.width, this.height);
+
+        ctx.drawImage(this.attackType, 
+            this.frameX * this.spriteWidth, 0, this.spriteWidth, this.spriteHeight,
+            this.x, this.y, this.width, this.height
+        )
     }
 }
 function handleProjectiles(){
