@@ -62,7 +62,6 @@ window.addEventListener("keyup", function(e) {
 function movePlayer() {
     // [Up] "W"
     if (keys[87] && player.y > 0) {
-        playerSprite.src = "./images/swordsman.png";
         player.y -= player.speed;
         player.frameY = 2;
         player.moving = true;
@@ -70,7 +69,6 @@ function movePlayer() {
     }
     // [Left] "A"
     if (keys[65] && player.x > 0 + (player.width / 2)) {
-        playerSprite.src = "./images/swordsman.png";
         player.x -= player.speed;
         player.frameY = 3;
         player.moving = true;
@@ -78,7 +76,6 @@ function movePlayer() {
     }
     // [Down] "S"
     if (keys[83] && player.y < canvas.height - player.height) {
-        playerSprite.src = "./images/swordsman.png";
         player.y += player.speed;
         player.frameY = 0;
         player.moving = true;
@@ -86,7 +83,6 @@ function movePlayer() {
     }
     // [Right] "D"
     if (keys[68] && player.x < canvas.width - player.width) {
-        playerSprite.src = "./images/swordsman.png";
         player.x += player.speed;
         player.frameY = 1;
         player.moving = true;
