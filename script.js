@@ -3,10 +3,13 @@ const ctx = canvas.getContext('2d');
 canvas.width = 800;
 canvas.height = 500;
 let gameOver = false;
+let stopGameSoon = false;
+let stopGame = false;
 let frame = 0;
 
 // [TEST]
 let score = 0;
+let winningScore = 5;
 
 // * [CAN EDIT] enemiesInterval  - 
 let enemiesInterval = 50;
@@ -36,7 +39,7 @@ function startAnimating(fps) {
 
 function animate() {
     frame++;
-    if (!gameOver) requestAnimationFrame(animate);
+    if (!gameOver && !stopGame) requestAnimationFrame(animate);
 
     now = Date.now();
     elapsed = now - then;
@@ -69,6 +72,13 @@ function animate() {
             gameOver = true;
         }
 
+        // [WORKS] doing this so "handleEnemies" happens 1st before game stops
+        // -> stops animating AFTER the enemy = removed
+        if (stopGameSoon) stopGame = true;
+   
+        // [TEST]
+        handleGameStatus();
+
         movePlayer();
         handlePlayerFrame();
     }
@@ -76,3 +86,5 @@ function animate() {
 
 // *** [CAN EDIT] arg = FPS -> larger number = more FPS = faster
 startAnimating(20);
+
+

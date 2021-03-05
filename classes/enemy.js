@@ -96,6 +96,7 @@ function handleEnemies(){
 
         // Note: takes enemy out if enemy health = 0
         if (enemies[i] && enemies[i].health <= 0){
+            score += 1;
             enemies.splice(i, 1);
             i--
         }
