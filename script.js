@@ -4,6 +4,7 @@ canvas.width = 800;
 canvas.height = 500;
 let gameOver = false;
 let frame = 0;
+let enemiesInterval = 100;
 
 const keys = [];
 
@@ -117,6 +118,12 @@ function handleEnemies(){
             i--
         }
     }
+
+    // [TEST] spawn enemy at interval
+    if (frame % enemiesInterval === 0) {
+        verticalPosition = 100;
+        enemies.push(new Enemy(canvas.width, verticalPosition));
+    };
 };
 
 
