@@ -4,11 +4,16 @@ function handleTimer(){
     if (beatLevel && timer < 50) {
         ctx.fillStyle = 'black';
         ctx.font = '60px Helvetica';
-        ctx.fillText('Level ' + currentLevel, 120, 390);
+        ctx.fillText('Level ' + currentLevel, 305, 70);
 
-        timer += 1;
+        timer += 1;   
     } else {
         beatLevel = false;
         timer = 0;
     }
+
+    // if (beatEntireGame && timer < 20) {
+    //     timer += 1; 
+    //     stopGameSoon = true
+    // }
 }

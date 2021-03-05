@@ -99,20 +99,20 @@ function handleEnemies(){
         if (enemies[i] && enemies[i].health <= 0){
             score += 1;
             enemies.splice(i, 1);
-            i--
+            i--;
         }
 
         // [TEST] take enemy out if player just beat a level
         // - this doesn't increment score
-        if (beatLevel) {
+        if (beatLevel || beatEntireGame)  {
             enemies.splice(i, 1);
-            i--
+            i--;
         }
     }
 
     // [TEST] spawn enemy at interval
     // - decide Spawn Point here (WIP)
-    if (frame % enemiesInterval === 0 && !beatLevel) {
+    if (frame % enemiesInterval === 0 && !beatLevel && !beatEntireGame) {
         verticalPosition = 100;
 
         // [NOTE] canvas.width = 800; canvas.height = 500;

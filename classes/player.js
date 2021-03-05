@@ -42,21 +42,22 @@ window.addEventListener("keyup", function(e) {
     delete keys[e.keyCode];
 
     player.moving = false;
+
     player.attacking = false; 
 
     // [WORKS] snaps back user to "moving" spritesheet if key up (aka idle)
     if (player.facing === "up") {
         player.frameY = 2;
-        player.frameX = 0;
+        // player.frameX = 0;
     } else if (player.facing === "left") {
         player.frameY = 3;
-        player.frameX = 0;
+        // player.frameX = 0;
     } else if (player.facing === "down") {
         player.frameY = 0;
-        player.frameX = 0;
+        // player.frameX = 0;
     } else if (player.facing === "right") {
         player.frameY = 1;
-        player.frameX = 0;
+        // player.frameX = 0;
     }
 });
 
@@ -122,7 +123,6 @@ function movePlayer() {
     // key: "K"
     if (keys[75]) {
         player.attacking = true;
-        player.width = 32;
         if (player.facing === "down") {
             player.frameY = 4;
             if (projectiles.length === 0) { 

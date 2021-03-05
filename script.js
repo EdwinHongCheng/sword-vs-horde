@@ -18,6 +18,7 @@ canvas.height = 500;
 let gameOver = false;
 let stopGameSoon = false;
 let stopGame = false;
+let beatEntireGame = false;
 
 
 // *** [WIP] current Level 1 settings
@@ -25,7 +26,7 @@ let frame = 0;
 let timer = 0;
 let beatLevel = false;
 let score = 0;
-let winningScore = 3;
+let winningScore = 1;
 let enemiesInterval = 50;
 
 
@@ -54,12 +55,12 @@ function animate() {
     if (!gameOver && !stopGame) requestAnimationFrame(animate);
 
     if (currentLevel === 2) {
-        winningScore = 5;
+        winningScore = 1;
         enemiesInterval = 40;
     }
 
     if (currentLevel === 3) {
-        winningScore = 30;
+        winningScore = 1;
         enemiesInterval = 20;
     }
 
@@ -97,20 +98,20 @@ function animate() {
             gameOver = true;
         }
 
-        // [WORKS] doing this so "handleEnemies" happens 1st before game stops
-        // -> stops animating AFTER the enemy = removed
-        if (stopGameSoon) stopGame = true;
-   
         // [TEST]
         handleGameStatus();
 
         // [TEST]
         handleTimer();
 
+        // [WORKS] doing this so "handleEnemies" happens 1st before game stops
+        // -> stops animating AFTER the enemy = removed
+        // if (stopGameSoon) stopGame = true;
 
-
-        movePlayer();
-        handlePlayerFrame();
+        if (!beatEntireGame) {
+            movePlayer();
+            handlePlayerFrame();
+        }
     }
 }
 
