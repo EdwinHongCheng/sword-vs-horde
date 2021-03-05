@@ -27,6 +27,9 @@ function handlePlayerFrame() {
 }
 
 
+const keys = [];
+
+
 
 // Note: uses "keys" array (on line 6)
 window.addEventListener("keydown", function(e) {

@@ -6,7 +6,7 @@ let gameOver = false;
 let frame = 0;
 let enemiesInterval = 100;
 
-const keys = [];
+
 
 const background = new Image();
 background.src = "./images/background.jpg";
@@ -17,8 +17,6 @@ background.src = "./images/background.jpg";
 
 
 
-// [TEST] enemies in an array
-let enemies = [];
 let testDummy = new Enemy(canvas.width, 350);
 enemies.push(testDummy);
 

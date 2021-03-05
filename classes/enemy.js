@@ -62,3 +62,7 @@ function handleEnemies(){
         enemies.push(new Enemy(canvas.width, verticalPosition));
     };
 };
+
+
+// [TEST] enemies in an array
+let enemies = [];
