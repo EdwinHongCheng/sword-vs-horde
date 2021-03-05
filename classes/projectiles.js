@@ -8,7 +8,7 @@ let flameFrameX = 0;
 
 // [TEST] "Projectile" sprites
 const attack1 = new Image();
-attack1.src = "./images/fire2.png";
+attack1.src = "./images/fire.png";
 
 class Projectile {
     constructor(x, y){
