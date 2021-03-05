@@ -5,7 +5,7 @@ const projectiles = [];
 
 class Projectile {
     constructor(x, y){
-        // [WIP][TEST] change "x" + "y" depending on player.facing
+        // [WORKS] change "x" + "y" depending on player.facing
         if (player.facing === "right") {
             x += 24;
             y += 0;

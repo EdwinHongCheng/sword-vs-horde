@@ -17,7 +17,7 @@ class Enemy {
         this.deadspaceY = 0;
         this.hitboxX = 16;
         this.hitboxY = 16;
-        
+
         // this.speed = Math.random() * 0.5 + 1;
         this.speed = 5;
         this.movementX = this.speed;
@@ -61,16 +61,18 @@ function handleEnemies(){
     for (let i = 0; i < enemies.length; i++){
         enemies[i].update();
         enemies[i].draw();
+        
 
-         // *** [WORKS] collision3
-        if (collision3(village, enemies[i])) {
-            gameOver = true; 
-        }
+         // * [TURNED OFF FOR TESTING] Collision w Village = Game Over
+        // if (collision3(village, enemies[i])) {
+        //     gameOver = true; 
+        // }
 
-        // *** [WORKS] collision3
-        if (collision3(player, enemies[i])) {
-            gameOver = true;
-        }
+        // * [TURNED OFF FOR TESTING] Collision w Player = Game Over
+        // if (collision3(player, enemies[i])) {
+        //     gameOver = true;
+        // }
+
 
         // Note: takes enemy out if enemy health = 0
         if (enemies[i] && enemies[i].health <= 0){
