@@ -70,12 +70,6 @@ function animate() {
         // [WORKS] draw projectiles
         handleProjectiles();
 
-
-        // [WORKS] Game Over if Player touches Village
-        // if (collision(player, village)) {
-        //     gameOver = true;
-        // }
-
         // *** [TEST]
         if (collision2(village, player)) {
             gameOver = true;

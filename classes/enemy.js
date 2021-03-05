@@ -1,28 +1,51 @@
 // [TEMP][TEST] Enemies (c+p from Tower Defense for now)
+
+
+// [NOTE] must change this later, to match script
+// - OR make another .js file that contains this
+let canvasWidth = 800;
+let canvasHeight = 500;
+
 class Enemy {
     constructor(x, y){
-        this.x = x;
+        this.x = x - 17;
         this.y = y;
-        this.width = 32;
-        this.height = 32;
-        this.speed = Math.random() * 0.5 + 1;
-        this.movement = this.speed;
-        this.health = 100;
-        // [TEST] enemy hitbox (not sure about values right now tbh)
+        this.width = 16;
+        this.height = 16;
+        // [WORKS] enemy hitbox (not sure about values right now tbh)
         this.deadspaceX = 0;
         this.deadspaceY = 0;
-        this.hitboxX = 32;
-        this.hitboxY = 32;
-    }
-    update(){
-        this.x -= this.movement;
-    }
-    draw(){
-        // ctx.fillStyle = 'red';
-        // ctx.beginPath();
-        // ctx.arc(this.x, this.y, this.width, 0, Math.PI * 2);
-        // ctx.fill();
+        this.hitboxX = 16;
+        this.hitboxY = 16;
+        
+        // this.speed = Math.random() * 0.5 + 1;
+        this.speed = 5;
+        this.movementX = this.speed;
+        this.movementY = this.speed;
+        this.health = 100;
 
+    }
+
+    // [WORKS] bounces squares on all 4 sides
+    update(){
+        // [NOTE] checks X sides (left + right walls)
+        if (this.x <= 0 || this.x + this.width >= canvasWidth) {
+            this.movementX *= -1;
+            this.x -= this.movementX;
+        } else {
+            this.x -= this.movementX;
+        }
+
+        // [NOTE] checks Y sides (top + down walls)
+        if (this.y <= 0 || this.y + this.height >= canvasHeight) {
+            this.movementY *= -1;
+            this.y -= this.movementY;
+        } else {
+            this.y -= this.movementY;
+        }
+    }
+
+    draw(){
         // [TEST] ctx.rect(x, y, width, height);
         ctx.beginPath();
         ctx.rect(this.x, this.y, this.width, this.height);
@@ -39,12 +62,12 @@ function handleEnemies(){
         enemies[i].update();
         enemies[i].draw();
 
-        // [WORKS]
+         // *** [WORKS] collision3
         if (collision3(village, enemies[i])) {
             gameOver = true; 
         }
 
-        // *** [TEST] collision3
+        // *** [WORKS] collision3
         if (collision3(player, enemies[i])) {
             gameOver = true;
         }
@@ -59,7 +82,17 @@ function handleEnemies(){
     // [TEST] spawn enemy at interval
     if (frame % enemiesInterval === 0) {
         verticalPosition = 100;
-        enemies.push(new Enemy(canvas.width, verticalPosition));
+
+        // [NOTE] this decides spawn point....
+        let randomPos= [
+            100,
+            300
+        ];
+
+        let z = randomPos[Math.floor(Math.random() * randomPos.length)]
+
+        // need to refactor enemy class to control direction
+        enemies.push(new Enemy(canvas.width, z));
     };
 };
 

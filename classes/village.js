@@ -14,6 +14,6 @@ class Village {
 
 // [TEST] village - can define x + y coordinates
 // - NOTE: for later levels -> use an array -> can map thru array to draw all?
-let village = new Village(300, 300);
+let village = new Village(100, 100);
 const villageSprite = new Image();
 villageSprite.src = "./images/village.png";

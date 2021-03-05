@@ -6,7 +6,6 @@ const projectiles = [];
 class Projectile {
     constructor(x, y){
         // [WIP][TEST] change "x" + "y" depending on player.facing
-        // NOTE: will have to readjust after I get updated spritesheet
         if (player.facing === "right") {
             x += 24;
             y += 0;
@@ -31,8 +30,8 @@ class Projectile {
 
         this.x = x;
         this.y = y;
-        // this.width = 32;
-        // this.height = 32;
+        
+    
         this.speed = 3;
         this.power = 100;
         // [TEST] want to "instantly" remove projectile -> melee attack
