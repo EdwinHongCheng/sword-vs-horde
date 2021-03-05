@@ -8,8 +8,8 @@ if( !(first.x > second.x + second.width ||
     };
 }
 
-// [TEST] hitbox collision: using "deadspaceX/Y" + "hitboxX/Y"
-// note: only 2nd will test out hero's hitboxes
+// [WORKS] hitbox collision: using "deadspaceX/Y" + "hitboxX/Y"
+// note: using it for attack (aka projectile)
 function collision2(first, second) {
     // 1st test: if "first" = on right side of hitbox
 if( !(first.x > second.x + second.deadspaceX + second.hitboxX ||

@@ -1,6 +1,6 @@
 const player = {
     // [NOTE] 1st 2 values below = starting position (ex. 200, 200)
-    x: 200,
+    x: 400 - 16,
     y: 300,
     width: 32,
     height: 32,
@@ -11,7 +11,7 @@ const player = {
     facing: "down",
     attacking: false,
     dashed: false,
-    // [TEST] hero hitbox
+    // [WORKS] hero hitbox
     deadspaceX: 8,
     deadspaceY: 6,
     hitboxX: 16,

@@ -24,7 +24,7 @@ class Enemy {
 
     }
 
-    // [WORKS] bounces squares on all 4 sides
+    // [WORKS] Bounces squares on all 4 sides
     update(){
         // [NOTE] checks X sides (left + right walls)
         if (this.x <= 0 || this.x + this.width >= canvasWidth) {
