@@ -1,15 +1,12 @@
-// [TEMP][TEST] Enemies (c+p from Tower Defense for now)
+// Reference: Tower Defense
 
-
-// [NOTE] must change this later, to match script
-// - OR make another .js file that contains this
 let canvasWidth = 800;
 let canvasHeight = 500;
 
 class Enemy {
     constructor(x, y){
         // [NOTE] "x - 17" cuz Enemy hitbox is 16px (so, 16 + 1 = 17)
-        this.x = x - 17;
+        this.x = x;
         this.y = y;
         this.width = 16;
         this.height = 16;
@@ -65,14 +62,14 @@ function handleEnemies(){
         
 
          // * [TURNED OFF FOR TESTING] Collision w Village = Game Over
-        // if (collision3(village, enemies[i])) {
-        //     gameOver = true; 
-        // }
+        if (collision3(village, enemies[i])) {
+            gameOver = true; 
+        }
 
         // * [TURNED OFF FOR TESTING] Collision w Player = Game Over
-        // if (collision3(player, enemies[i])) {
-        //     gameOver = true;
-        // }
+        if (collision3(player, enemies[i])) {
+            gameOver = true;
+        }
 
 
         // Note: takes enemy out if enemy health = 0
@@ -83,22 +80,34 @@ function handleEnemies(){
     }
 
     // [TEST] spawn enemy at interval
+    // - decide Spawn Point here (WIP)
     if (frame % enemiesInterval === 0) {
         verticalPosition = 100;
 
-        // [NOTE] this decides spawn point....
-        let randomPos= [
-            100,
-            300
-        ];
+        // [NOTE] canvas.width = 800; canvas.height = 500;
 
-        let z = randomPos[Math.floor(Math.random() * randomPos.length)]
+        // [NOTE] Enemy = 16x16 -> using +/- 17 px
+        let randomPosPair = [
+            // Spawns at Right side
+            [800 - 17, 167],
+            [800 - 17, 333],
+            // Spawns at Left side
+            [0, 167],
+            [0, 333],
+            // Spawns at Top
+            [267, 0],
+            [533, 0],
+            // Spawns at Bottom
+            [267, 500 - 17],
+            [533, 500 - 17],
+        ]
+
+        let posXY = randomPosPair[Math.floor(Math.random() * randomPosPair.length)]
 
         // need to refactor enemy class to control direction
-        enemies.push(new Enemy(canvas.width, z));
+        enemies.push(new Enemy(...posXY));
     };
 };
 
-
-// [TEST] enemies in an array
+// [NOTE]
 let enemies = [];

@@ -4,17 +4,17 @@ class Village {
         this.y = y;
         this.width = 32;
         this.height = 44;
-    // [TEST] village hitbox 
+    // [WORKS] village hitbox 
     // - giving the deadspace "margin" "X/Y" px each side
         this.deadspaceX = 1;
-        this.deadspaceY = 4;
+        this.deadspaceY = 3;
         this.hitboxX = 30;
-        this.hitboxY = 36;
+        this.hitboxY = 38;
     }
 }
 
 // [TEST] village - can define x + y coordinates
 // - NOTE: for later levels -> use an array -> can map thru array to draw all?
-let village = new Village(100, 100);
+let village = new Village(400 - 16, 250 - 22);
 const villageSprite = new Image();
 villageSprite.src = "./images/village2.png";

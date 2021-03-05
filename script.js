@@ -4,26 +4,12 @@ canvas.width = 800;
 canvas.height = 500;
 let gameOver = false;
 let frame = 0;
-let enemiesInterval = 100;
 
-
+// * [CAN EDIT] enemiesInterval  - 
+let enemiesInterval = 50;
 
 const background = new Image();
 background.src = "./images/background.jpg";
-
-
-
-// ---------------------------------------------------------------------------->
-
-// [REMOVE LATER] - might wanna spawn enemy w "if frame === 50" or something
-// - goal: just have the 1st enemy spawn super early
-
-let testDummy = new Enemy(canvas.width, 350);
-enemies.push(testDummy);
-
-
-
-
 
 
 
@@ -34,7 +20,6 @@ enemies.push(testDummy);
 function drawSprite(img, sX, sY, sW, sH, dX, dY, dW, dH) {
     ctx.drawImage(img, sX, sY, sW, sH, dX, dY, dW, dH);
 }
-
 
 let fps, fpsInterval, startTime, now, then, elapsed;
 
@@ -71,8 +56,8 @@ function animate() {
         // [WORKS] draw projectiles
         handleProjectiles();
 
-        // *** [TEST]
-        if (collision2(village, player)) {
+        // * [WORKS]
+        if (collision3(village, player)) {
             gameOver = true;
         }
 
@@ -81,5 +66,5 @@ function animate() {
     }
 }
 
-// [CAN EDIT] arg = FPS -> larger number = more FPS = faster
+// *** [CAN EDIT] arg = FPS -> larger number = more FPS = faster
 startAnimating(20);

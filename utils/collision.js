@@ -23,15 +23,15 @@ if( !(first.x > second.x + second.deadspaceX + second.hitboxX ||
     };
 }
 
-// [TEST] both args has deadspace + hitbox X + Y
+// [WORKS] both args has deadspace + hitbox X + Y
 function collision3(first, second) {
     // [Good] 1st test: if "first" = on right side of second's hitbox
 if( !(first.x + first.deadspaceX > second.x + second.deadspaceX + second.hitboxX ||
     // [Good] 2nd test: if "first" = on left side of second's hitbox
     first.x + first.deadspaceX + first.hitboxX < second.x + second.deadspaceX ||
-    // [Test] 3rd test: if "first" = below second's hitbox
+    // [Good] 3rd test: if "first" = below second's hitbox
     first.y + first.deadspaceY > second.y + second.deadspaceY + second.hitboxY ||
-    // [Test] 4th test: if "first" = above second's hitbox
+    // [Good] 4th test: if "first" = above second's hitbox
     first.y + first.deadspaceY + first.hitboxY < second.y + second.deadspaceY)) {
         return true;
     };
