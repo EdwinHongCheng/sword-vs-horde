@@ -1,8 +1,8 @@
 function handleGameStatus(){    
     // [TEST] Kills / Kills Needed
-    ctx.fillStyle = 'white';
-    ctx.font = '20px Helvetica';
-    ctx.fillText('Slain: ' + score + " / " + winningScore, 650, 35);
+    ctx2.fillStyle = 'white';
+    ctx2.font = '20px Helvetica';
+    ctx2.fillText('Slain: ' + score + " / " + winningScore, 680, 36);
 
     if (gameOver){
         ctx.fillStyle = 'black';

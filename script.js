@@ -1,7 +1,17 @@
+// [TEST]
+const topCanvas = document.getElementById('top-canvas')
+const ctx2 = topCanvas.getContext('2d');
+topCanvas.width = 800;
+topCanvas.height = 60;
+
+
+// [MAIN CANVAS]
 const canvas = document.getElementById('canvas1');
 const ctx = canvas.getContext('2d');
 canvas.width = 800;
 canvas.height = 500;
+
+
 let gameOver = false;
 let stopGameSoon = false;
 let stopGame = false;
@@ -16,9 +26,6 @@ let enemiesInterval = 50;
 
 const background = new Image();
 background.src = "./images/background.png";
-// background.src = "./images/background.jpg";
-
-
 
 // ---------------------------------------------------------------------------->
 
@@ -47,6 +54,9 @@ function animate() {
         then = now - (elapsed % fpsInterval);
 
         ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        // [TEST] clears top Canvas -> lets "Slain" score update
+        ctx2.clearRect(0, 0, topCanvas.width, topCanvas.height);
 
         // [Draw Background]
         ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
