@@ -3,16 +3,22 @@
 let canvasWidth = 800;
 let canvasHeight = 500;
 
+// [TEST] enemy sprites
+const enemyTypes = [];
+const enemy1 = new Image();
+enemy1.src = "./images/enemy.png";
+enemyTypes.push(enemy1);
+
 class Enemy {
     constructor(x, y){
         // [NOTE] "x - 17" cuz Enemy hitbox is 16px (so, 16 + 1 = 17)
         this.x = x;
         this.y = y;
-        this.width = 16;
-        this.height = 16;
+        this.width = 32;
+        this.height = 32;
         // [WORKS] enemy hitbox (not sure about values right now tbh)
-        this.deadspaceX = 0;
-        this.deadspaceY = 0;
+        this.deadspaceX = 8;
+        this.deadspaceY = 8;
         this.hitboxX = 16;
         this.hitboxY = 16;
 
@@ -22,10 +28,23 @@ class Enemy {
         this.movementY = this.speed;
         this.health = 100;
 
+        // [TEST]
+        this.enemyType = enemyTypes[0];
+        this.frameX = 0;
+        this.frameY = 0;
+        this.minFrame = 0;
+        this.maxFrame = 3;
+        this.spriteWidth = 32;
+        this.spriteHeight = 32;
     }
 
     // [WORKS] Bounces squares on all 4 sides
     update(){
+        // [TEST] animation
+        if (this.frameX < this.maxFrame) this.frameX++;
+        else this.frameX = this.minFrame;
+
+
         // [NOTE] checks X sides (left + right walls)
         if (this.x <= 0 || this.x + this.width >= canvasWidth) {
             this.movementX *= -1;
@@ -44,12 +63,15 @@ class Enemy {
     }
 
     draw(){
-        // [TEST] ctx.rect(x, y, width, height);
-        ctx.beginPath();
-        ctx.rect(this.x, this.y, this.width, this.height);
-        ctx.fillStyle = "red";
-        ctx.fill();
-        ctx.closePath();
+        // [TEST] ctx.rect(x, y, width, height);        
+        // ctx.fillStyle = "red";
+        // ctx.fillRect(this.x, this.y, this.width, this.height);
+
+        // ctx.drawImage(img, sx, sy, sw, sh, dx, dy, dw, dh)
+        ctx.drawImage(this.enemyType, 
+            this.frameX * this.spriteWidth, 0, this.spriteWidth, this.spriteHeight,
+            this.x, this.y, this.width, this.height
+        )
     }
 }
 
@@ -86,11 +108,11 @@ function handleEnemies(){
 
         // [NOTE] canvas.width = 800; canvas.height = 500;
 
-        // [NOTE] Enemy = 16x16 -> using +/- 17 px
+        // [NOTE] Enemy = 32x32 -> using +/- 33 px
         let randomPosPair = [
             // Spawns at Right side
-            [800 - 17, 167],
-            [800 - 17, 333],
+            [800 - 33, 167],
+            [800 - 33, 333],
             // Spawns at Left side
             [0, 167],
             [0, 333],
@@ -98,8 +120,8 @@ function handleEnemies(){
             [267, 0],
             [533, 0],
             // Spawns at Bottom
-            [267, 500 - 17],
-            [533, 500 - 17],
+            [267, 500 - 33],
+            [533, 500 - 33],
         ]
 
         let posXY = randomPosPair[Math.floor(Math.random() * randomPosPair.length)]

@@ -5,11 +5,15 @@ canvas.height = 500;
 let gameOver = false;
 let frame = 0;
 
+// [TEST]
+let score = 0;
+
 // * [CAN EDIT] enemiesInterval  - 
 let enemiesInterval = 50;
 
 const background = new Image();
-background.src = "./images/background.jpg";
+background.src = "./images/background2.png";
+// background.src = "./images/background.jpg";
 
 
 
@@ -40,7 +44,11 @@ function animate() {
         then = now - (elapsed % fpsInterval);
 
         ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        // [Draw Background]
         ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
+
+
         drawSprite(
             playerSprite, player.width * player.frameX, player.height * player.frameY, 
             player.width, player.height,

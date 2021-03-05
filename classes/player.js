@@ -1,6 +1,6 @@
 const player = {
     // [NOTE] 1st 2 values below = starting position (ex. 200, 200)
-    x: 400 - 16,
+    x: 400,
     y: 300,
     width: 32,
     height: 32,
