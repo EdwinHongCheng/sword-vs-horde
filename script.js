@@ -1,9 +1,12 @@
-// [TEST]
+// [WORKS] Top Canvas (Nav Bar)
 const topCanvas = document.getElementById('top-canvas')
 const ctx2 = topCanvas.getContext('2d');
 topCanvas.width = 800;
 topCanvas.height = 60;
 
+
+// [WORKS] Different Levels
+let currentLevel = 1;
 
 // [MAIN CANVAS]
 const canvas = document.getElementById('canvas1');
@@ -15,14 +18,16 @@ canvas.height = 500;
 let gameOver = false;
 let stopGameSoon = false;
 let stopGame = false;
+
+
+// *** [WIP] current Level 1 settings
 let frame = 0;
-
-// [TEST]
+let timer = 0;
+let beatLevel = false;
 let score = 0;
-let winningScore = 5;
-
-// * [CAN EDIT] enemiesInterval  - 
+let winningScore = 3;
 let enemiesInterval = 50;
+
 
 const background = new Image();
 background.src = "./images/background.png";
@@ -48,6 +53,16 @@ function animate() {
     frame++;
     if (!gameOver && !stopGame) requestAnimationFrame(animate);
 
+    if (currentLevel === 2) {
+        winningScore = 5;
+        enemiesInterval = 40;
+    }
+
+    if (currentLevel === 3) {
+        winningScore = 30;
+        enemiesInterval = 20;
+    }
+
     now = Date.now();
     elapsed = now - then;
     if (elapsed > fpsInterval) {
@@ -55,7 +70,7 @@ function animate() {
 
         ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-        // [TEST] clears top Canvas -> lets "Slain" score update
+        // [WORKS] clears top Canvas -> lets "Slain" score update
         ctx2.clearRect(0, 0, topCanvas.width, topCanvas.height);
 
         // [Draw Background]
@@ -89,6 +104,11 @@ function animate() {
         // [TEST]
         handleGameStatus();
 
+        // [TEST]
+        handleTimer();
+
+
+
         movePlayer();
         handlePlayerFrame();
     }
@@ -96,5 +116,3 @@ function animate() {
 
 // *** [CAN EDIT] arg = FPS -> larger number = more FPS = faster
 startAnimating(20);
-
-
