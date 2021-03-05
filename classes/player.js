@@ -40,10 +40,11 @@ window.addEventListener("keydown", function(e) {
 
 window.addEventListener("keyup", function(e) {
     delete keys[e.keyCode];
+
     player.moving = false;
     player.attacking = false; 
 
-    // [TEMP][WORKS] snaps back user to "moving" spritesheet if key up (aka idle)
+    // [WORKS] snaps back user to "moving" spritesheet if key up (aka idle)
     if (player.facing === "up") {
         player.frameY = 2;
         player.frameX = 0;
@@ -117,7 +118,7 @@ function movePlayer() {
     }
 
 
-    // [TEMP] [TEST] Attack Animation - sorta works, cut spritesheet tho
+    // [TEMP] [TEST] Attack Animation - sorta works
     // key: "K"
     if (keys[75]) {
         player.attacking = true;

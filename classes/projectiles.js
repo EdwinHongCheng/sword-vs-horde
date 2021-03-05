@@ -1,12 +1,14 @@
 // [TEST] Sword Attack "Beam" ------------------------------------------------->
 // - note: from "Tower Defense" - "Projectiles"
 
-const projectiles = [];
+let projectiles = [];
 
+// [TEST] global vars for fire sprite -> "changes"
+let flameFrameX = 0;
 
 // [TEST] "Projectile" sprites
 const attack1 = new Image();
-attack1.src = "./images/fire.png";
+attack1.src = "./images/fire2.png";
 
 class Projectile {
     constructor(x, y){
@@ -42,7 +44,7 @@ class Projectile {
         // [TEST] want to "instantly" remove projectile -> melee attack
         this.remove = false;
 
-        // [TEST]
+        // [WIP][WORKS] Animation - need to find a way to remove flame
         this.attackType = attack1;
         this.frameX = 0;
         this.frameY = 0;
@@ -53,6 +55,11 @@ class Projectile {
     }
     update(){
         // [TEST] want to "instantly" remove projectile -> melee attack
+        
+        // [TEST] animation
+        if (flameFrameX < this.maxFrame) flameFrameX++;
+        else flameFrameX = this.minFrame;
+
         this.remove = true;
     }
     draw(){
@@ -60,7 +67,7 @@ class Projectile {
         // ctx.fillRect(this.x, this.y, this.width, this.height);
 
         ctx.drawImage(this.attackType, 
-            this.frameX * this.spriteWidth, 0, this.spriteWidth, this.spriteHeight,
+            flameFrameX * this.spriteWidth, 0, this.spriteWidth, this.spriteHeight,
             this.x, this.y, this.width, this.height
         )
     }
