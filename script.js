@@ -35,9 +35,6 @@ function drawSprite(img, sX, sY, sW, sH, dX, dY, dW, dH) {
 }
 
 
-
-
-
 let fps, fpsInterval, startTime, now, then, elapsed;
 
 function startAnimating(fps) {
@@ -89,7 +86,5 @@ function animate() {
     }
 }
 
-// [NOTE] arg = FPS
-// - larger number = more FPS = faster
+// [CAN EDIT] arg = FPS -> larger number = more FPS = faster
 startAnimating(20);
-
