@@ -22,7 +22,7 @@ window.addEventListener("keydown", function(e) {
 
         ctx.font = '30px Helvetica';
         ctx.fillText('Instructions', 324, 50);
-        ctx.font = '22px Helvetica';
+        ctx.font = '20px Helvetica';
         // [Blurb]
         ctx.fillText('Protect the village from the evil slime horde!', 20, 100);
         ctx.fillText('Vanquish them all with thy trusty flame sword!', 20, 140);
@@ -33,7 +33,7 @@ window.addEventListener("keydown", function(e) {
         ctx.font = '30px Helvetica';
         ctx.fillText('Buttons', 348, 265);
 
-        ctx.font = '22px Helvetica';
+        ctx.font = '20px Helvetica';
         ctx.fillText('Up / Left / Down / Right :   W / A / S / D', 20, 320);
         ctx.fillText('Flame Sword Strike :   K', 20, 360);
         ctx.fillText('Teleport Dash :   L', 20, 400);
