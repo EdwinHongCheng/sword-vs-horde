@@ -33,7 +33,7 @@ window.addEventListener("keydown", function() {
         ctx.fillText('Buttons', 348, 250);
 
         ctx.font = '22px Helvetica';
-        ctx.fillText('Up / Down / Left / Right :   W / A / S / D', 20, 300);
+        ctx.fillText('Up / Left / Down / Right :   W / A / S / D', 20, 300);
         ctx.fillText('Flame Sword Strike :   K', 20, 330);
         ctx.fillText('Teleport Dash :   L', 20, 360);
 
