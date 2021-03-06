@@ -1,5 +1,3 @@
-// Reference: Tower Defense
-
 let canvasWidth = 800;
 let canvasHeight = 500;
 

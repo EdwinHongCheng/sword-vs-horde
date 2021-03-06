@@ -26,7 +26,7 @@ window.addEventListener("keydown", function() {
         ctx.fillText('Protect the village from the evil slime horde!', 20, 90);
         ctx.fillText('Vanquish them all with thy trusty flame sword!', 20, 120);
         ctx.fillText('Do not attempt to run back home.', 20, 150);
-        ctx.fillText('The battle waits for you, alone.', 20, 180);
+        ctx.fillText('The battle waits for you alone.', 20, 180);
         // [Controls]
 
         ctx.font = '30px Helvetica';
@@ -41,10 +41,17 @@ window.addEventListener("keydown", function() {
         ctx.font = '26px Helvetica';
         ctx.fillText('- Press Any Key to Start the Battle -', 210, 490);
 
+
+        let campfire = new Image();
+        campfire.src = "./images/campfire.png";
+
+        campfire.onload = function() {
+            ctx.drawImage(campfire, 0, 0, 256, 280, 520, 160, 256, 280);
+        }
+
     } else if (currentState === 1) {
         currentState = states.Playing;
-        console.log("Time to Play!")
-        // [CAN EDIT] larger number = more FPS = faster
+        // [Current] 20 FPS = pretty good imo
         startAnimating(20);
     }
 });
