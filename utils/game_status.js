@@ -11,6 +11,12 @@ function handleGameStatus(){
     ctx2.font = '20px Helvetica';
     ctx2.fillText('Level ' + currentLevel, 10, 36);
 
+    // [TEST]
+    ctx2.fillStyle = 'white';
+    ctx2.font = '16px Helvetica';
+    ctx2.fillText('Pause / Resume Game:', 120, 24);
+    ctx2.fillText('Press the F key', 150, 48);
+
 
     // [BOTTOM CANVAS] --------------------------------------->
     if (gameOver){

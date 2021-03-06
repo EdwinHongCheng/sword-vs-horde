@@ -50,8 +50,9 @@ window.addEventListener("keydown", function() {
         }
 
     } else if (currentState === 1) {
-        currentState = states.Playing;
         // [Current] 20 FPS = pretty good imo
         startAnimating(20);
+
+        currentState = states.Playing;
     }
 });

@@ -20,6 +20,10 @@ let stopGameSoon = false;
 let stopGame = false;
 let beatEntireGame = false;
 
+// [TEST] Pause/Resume functionality
+let pauseGame = false;
+let animateLoopDone = false;
+
 
 // *** [WIP] current Level 1 settings
 let frame = 0;
@@ -55,7 +59,7 @@ function startAnimating(fps) {
 
 function animate() {
     frame++;
-    if (!gameOver && !stopGame) requestAnimationFrame(animate);
+    if (!gameOver && !stopGame && !pauseGame) requestAnimationFrame(animate);
 
     if (currentLevel === 2) {
         winningScore = 20;
@@ -79,7 +83,6 @@ function animate() {
 
         // [Draw Background]
         ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
-
 
         drawSprite(
             playerSprite, player.width * player.frameX, player.height * player.frameY, 
