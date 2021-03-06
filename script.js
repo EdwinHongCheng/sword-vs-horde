@@ -32,7 +32,7 @@ let enemiesInterval = 50;
 
 
 const background = new Image();
-background.src = "./images/background.png";
+background.src = "./images/grass2.png";
 
 
 
