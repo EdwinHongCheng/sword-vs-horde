@@ -108,7 +108,7 @@ function animate() {
         handleGameStatus();
 
         // [TEST]
-        handleTimer();
+        handleNewLevel();
 
         // [WORKS] doing this so "handleEnemies" happens 1st before game stops
         // -> stops animating AFTER the enemy = removed

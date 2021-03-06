@@ -30,12 +30,13 @@ window.addEventListener("keydown", function() {
         // [Controls]
 
         ctx.font = '30px Helvetica';
-        ctx.fillText('Buttons', 348, 270);
+        ctx.fillText('Buttons', 348, 265);
 
         ctx.font = '22px Helvetica';
-        ctx.fillText('Up / Left / Down / Right :   W / A / S / D', 20, 330);
-        ctx.fillText('Flame Sword Strike :   K', 20, 370);
-        ctx.fillText('Teleport Dash :   L', 20, 410);
+        ctx.fillText('Up / Left / Down / Right :   W / A / S / D', 20, 320);
+        ctx.fillText('Flame Sword Strike :   K', 20, 360);
+        ctx.fillText('Teleport Dash :   L', 20, 400);
+        ctx.fillText('Pause / Resume Game :   F', 20, 440);
 
         // ["Press Any Key to Start" Line]
         ctx.font = '26px Helvetica';

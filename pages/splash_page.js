@@ -3,7 +3,7 @@
 
 // [WORKS] clears top Canvas -> lets "Slain" score update
 ctx2.fillStyle = 'white';
-ctx2.font = '40px Helvetica';
+ctx2.font = '40px Times New Roman';
 ctx2.fillText('Sword vs Horde', 270, 44);
 
 

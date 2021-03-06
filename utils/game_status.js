@@ -24,12 +24,13 @@ function handleGameStatus(){
         beatLevel = false;
 
         ctx.fillStyle = 'red';
-        ctx.font = '90px Helvetica';
+        // ctx.font = '90px Helvetica';
+        ctx.font = '90px Times New Roman';
         ctx.fillText('GAME OVER', 120, 100);
 
     } else if (score >= winningScore && currentLevel === 3){
         ctx.fillStyle = 'black';
-        ctx.font = '90px Helvetica';
+        ctx.font = '90px Times New Roman';
         ctx.fillText('YOU WIN!', 192, 100);
         
         beatEntireGame = true;

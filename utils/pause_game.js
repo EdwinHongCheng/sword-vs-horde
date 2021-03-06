@@ -1,8 +1,8 @@
-// [TEST] to Pause/Resume Game
+// [WORKS] Pause/Resume Game
 
 window.addEventListener("keydown", function(e) {
     // Key = F
-    if (e.keyCode === 70 && currentState === 2) {
+    if (e.keyCode === 70 && currentState === 2 && !gameOver) {
         pauseGame = !pauseGame;
 
         if (pauseGame) {

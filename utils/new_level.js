@@ -1,9 +1,9 @@
 // Timer: if Player beats a level -> has a temporary "Level 2" message, etc
 
-function handleTimer(){
+function handleNewLevel(){
     if (beatLevel && timer < 40) {
         ctx.fillStyle = 'black';
-        ctx.font = '60px Helvetica';
+        ctx.font = '60px Times New Roman';
         ctx.fillText('Level ' + currentLevel, 305, 70);
 
         timer += 1;
