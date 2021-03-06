@@ -16,7 +16,7 @@ canvas.height = 500;
 
 
 let gameOver = false;
-let stopGameSoon = false;
+// let stopGameSoon = false;
 let stopGame = false;
 let beatEntireGame = false;
 

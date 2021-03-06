@@ -35,7 +35,10 @@ const keys = [];
 window.addEventListener("keydown", function(e) {
     // [NOTE] "e.keycode" ("e.keys" DOES NOT WORK)
     keys[e.keyCode] = true;
-    player.moving = true;
+
+    if ([87, 65, 83, 68, 75].includes(e.keyCode)) {
+        player.moving = true;
+    }
 });
 
 window.addEventListener("keyup", function(e) {

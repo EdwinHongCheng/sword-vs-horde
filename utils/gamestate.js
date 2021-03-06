@@ -11,8 +11,9 @@ let currentState = states.Menu;
 
 
 // [NOTE] make it so click only works once
-window.addEventListener("keydown", function() {
-    if (currentState === 0) {
+window.addEventListener("keydown", function(e) {
+    // [TEST Space to got to Instructions]
+    if (currentState === 0 && e.keyCode === 32) {
         currentState = states.Instructions;
 
         ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -40,7 +41,7 @@ window.addEventListener("keydown", function() {
 
         // ["Press Any Key to Start" Line]
         ctx.font = '26px Helvetica';
-        ctx.fillText('- Press Any Key to Start the Battle -', 210, 490);
+        ctx.fillText('- Press Space to Start the Battle -', 210, 490);
 
 
         let campfire = new Image();
@@ -50,7 +51,8 @@ window.addEventListener("keydown", function() {
             ctx.drawImage(campfire, 0, 0, 256, 280, 520, 160, 256, 280);
         }
 
-    } else if (currentState === 1) {
+        // [WORKS] Space to Start Game
+    } else if (currentState === 1 && e.keyCode === 32) {
         // [Current] 20 FPS = pretty good imo
         startAnimating(20);
 

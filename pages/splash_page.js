@@ -17,5 +17,5 @@ intro_bg.onload = function() {
 
     ctx.fillStyle = 'white';
     ctx.font = '26px Helvetica';
-    ctx.fillText('- Press Any Key to Continue -', 240, 490);
+    ctx.fillText('- Press Space to Continue -', 240, 490);
 }
