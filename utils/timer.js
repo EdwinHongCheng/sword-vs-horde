@@ -6,7 +6,9 @@ function handleTimer(){
         ctx.font = '60px Helvetica';
         ctx.fillText('Level ' + currentLevel, 305, 70);
 
-        timer += 1;   
+        timer += 1;
+
+        if (score > 0) score = 0;
     } else {
         beatLevel = false;
         timer = 0;

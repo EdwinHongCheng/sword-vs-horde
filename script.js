@@ -26,7 +26,7 @@ let frame = 0;
 let timer = 0;
 let beatLevel = false;
 let score = 0;
-let winningScore = 1;
+let winningScore = 2;
 let enemiesInterval = 50;
 
 
@@ -55,12 +55,12 @@ function animate() {
     if (!gameOver && !stopGame) requestAnimationFrame(animate);
 
     if (currentLevel === 2) {
-        winningScore = 1;
+        winningScore = 2;
         enemiesInterval = 40;
     }
 
     if (currentLevel === 3) {
-        winningScore = 1;
+        winningScore = 20;
         enemiesInterval = 20;
     }
 

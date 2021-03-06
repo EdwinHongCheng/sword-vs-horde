@@ -133,10 +133,13 @@ function handleEnemies(){
             [533, 500 - 33],
         ]
 
-        let posXY = randomPosPair[Math.floor(Math.random() * randomPosPair.length)]
+        let posXY1 = randomPosPair[Math.floor(Math.random() * randomPosPair.length)]
+        enemies.push(new Enemy(...posXY1));
 
-        // need to refactor enemy class to control direction
-        enemies.push(new Enemy(...posXY));
+        // [EXTRA ENEMY] NOTE: too hard tho
+
+        // let posXY2 = randomPosPair[Math.floor(Math.random() * randomPosPair.length)]
+        // enemies.push(new Enemy(...posXY2));
     };
 };
 
