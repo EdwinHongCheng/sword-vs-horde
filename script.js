@@ -24,7 +24,8 @@ let beatEntireGame = false;
 // *** [WIP] current Level 1 settings
 let frame = 0;
 let timer = 0;
-let beatLevel = false;
+// [TEST] beatLevel = true -> can have "timer.js" invoke "Level 1" message
+let beatLevel = true;
 let score = 0;
 let winningScore = 2;
 let enemiesInterval = 50;
