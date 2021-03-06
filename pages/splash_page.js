@@ -7,8 +7,6 @@ ctx2.font = '40px Helvetica';
 ctx2.fillText('Sword vs Horde', 270, 44);
 
 
-
-
 // [WORKS] note: background image needs time to load before drawing it
 let intro_bg = new Image();
 intro_bg.src = "./images/intro_background.jpg";
