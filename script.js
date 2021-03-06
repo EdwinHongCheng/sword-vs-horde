@@ -27,7 +27,7 @@ let timer = 0;
 // [TEST] beatLevel = true -> can have "timer.js" invoke "Level 1" message
 let beatLevel = true;
 let score = 0;
-let winningScore = 2;
+let winningScore = 10;
 let enemiesInterval = 50;
 
 
@@ -58,12 +58,12 @@ function animate() {
     if (!gameOver && !stopGame) requestAnimationFrame(animate);
 
     if (currentLevel === 2) {
-        winningScore = 2;
+        winningScore = 20;
         enemiesInterval = 40;
     }
 
     if (currentLevel === 3) {
-        winningScore = 20;
+        winningScore = 30;
         enemiesInterval = 20;
     }
 
