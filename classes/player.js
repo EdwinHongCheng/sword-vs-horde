@@ -15,7 +15,10 @@ const player = {
     deadspaceX: 8,
     deadspaceY: 6,
     hitboxX: 16,
-    hitboxY: 20
+    hitboxY: 20,
+    // [WORKS] Previous Location - used in "movePlayer()"
+    prevX: this.x,
+    prevY: this.y
 }
 
 const playerSprite = new Image();
@@ -121,8 +124,18 @@ function movePlayer() {
         }
     }
 
+    // * [WORKS] Sends Player back to Prev Location if Touching Village
+    if (collision3(village, player)) {
+        player.x = player.prevX;
+        player.y = player.prevY;
+    } else {
+        player.prevX = player.x;
+        player.prevY = player.y;
+    }
 
-    // [TEMP] [TEST] Attack Animation - sorta works
+    // ------------------------------------------------------------------------>
+
+    // [WORKS] Attack Animation - sorta works
     // key: "K"
     if (keys[75]) {
         player.attacking = true;

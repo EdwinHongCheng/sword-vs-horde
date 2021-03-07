@@ -116,10 +116,10 @@ function animate() {
         // [WORKS] draw projectiles
         handleProjectiles();
 
-        // * [WORKS]
-        if (collision3(village, player)) {
-            gameOver = true;
-        }
+        // * [WORKS - BUT DONT WANT] Current: turned off Village touches player = Game Over
+        // if (collision3(village, player)) {
+        //     gameOver = true;
+        // }
 
         // [WORKS]
         handleGameStatus();
