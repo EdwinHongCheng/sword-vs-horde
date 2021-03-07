@@ -14,6 +14,11 @@ function handleGameStatus(){
     ctx2.font = '16px Helvetica';
     ctx2.fillText('Pause / Resume Game:', 120, 24);
     ctx2.fillText('Press the F key', 150, 48);
+    // [TEST] Music On/Off Message
+    ctx2.fillStyle = 'white';
+    ctx2.font = '16px Helvetica';
+    ctx2.fillText('Music On / Off:', 510, 24);
+    ctx2.fillText('Press the G key', 510, 48);
 
 
     // [BOTTOM CANVAS] --------------------------------------->
@@ -25,7 +30,7 @@ function handleGameStatus(){
         // ctx.font = '90px Helvetica';
         ctx.font = '90px Times New Roman';
         ctx.fillText('GAME OVER', 120, 100);
-        // [TEST] Restart Level Message
+        // [WORKS] Restart Level Message
         ctx.fillStyle = 'white';
         ctx.font = '40px Times New Roman';
         ctx.fillText('- Press Space to Try Again -', 173, 400);
@@ -34,6 +39,11 @@ function handleGameStatus(){
         ctx.fillStyle = 'white';
         ctx.font = '90px Times New Roman';
         ctx.fillText('YOU WIN!', 192, 100);
+
+
+        ctx.fillStyle = 'white';
+        ctx.font = '40px Times New Roman';
+        ctx.fillText('- Press Space to Restart Game -', 143, 400);
         
         beatEntireGame = true;
 

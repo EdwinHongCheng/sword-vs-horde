@@ -6,16 +6,13 @@ gameMusic.addEventListener('ended', function() {
   this.play();
 }, false);
 
-// ----------------------->
-
-// [WIP] Goal: have a "button" in Top Canvas -> click pauses/plays music
 
 // [WORKS] Pause/Play Music
 let pauseMusic = false;
 
 window.addEventListener('keydown', function(e) {
-  // "T" = keyCode 84
-  if (e.keyCode === 84) {
+  // "G" = keyCode 71
+  if (e.keyCode === 71 && currentState === 2 && !gameOver && !pauseGame) {
     pauseMusic = !pauseMusic;
     if (pauseMusic) {
     gameMusic.pause();
@@ -25,14 +22,26 @@ window.addEventListener('keydown', function(e) {
   }
 });
 
+
 // [WIP] Goal: use Restart
 // - Game Over/Beat Game -> pause Music + reset current time
 // - Restart Level -> play music again
 
 // [WORKS] Restart Music - KEY = "Y"
-window.addEventListener('keydown', function(e) {
-  // [KEY] "Y" = 89
-  if (e.keyCode === 89) {
+// window.addEventListener('keydown', function(e) {
+//   // [KEY] "Y" = 89
+//   if (e.keyCode === 89) {
+//     gameMusic.currentTime = 0;
+//   }
+// });
+
+function handleGameMusic() {
+  if (gameOver || beatEntireGame) {
+    gameMusic.pause();
+    pauseMusic = false;
+    playingMusic = false;
     gameMusic.currentTime = 0;
   }
-});
+}
+
+

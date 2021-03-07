@@ -38,9 +38,9 @@ let enemiesInterval = 50;
 const background = new Image();
 background.src = "./images/grass2.png";
 
-
-const volumeIcon = new Image();
-volumeIcon.src = "./images/volumeIcon.png";
+// [WIP][Image works] Volume Icon Image
+// const volumeIcon = new Image();
+// volumeIcon.src = "./images/volumeIcon.png";
 
 
 // [WORKS] Music Pause/Play
@@ -60,6 +60,10 @@ function startAnimating(fps) {
     if (!playingMusic) {
         gameMusic.play();
         playingMusic = true;
+    // [WORKS] resumes music after pausing screen (works w "pause_game.js")
+    } else if (pauseMusic) {
+        gameMusic.play();
+        pauseMusic = false;
     }
 
     fpsInterval = 1000/fps;
@@ -94,11 +98,11 @@ function animate() {
 
 
 
-        // [WIP][WORKS] Play/Pause Button
-        ctx2.fillStyle = 'white';
-        ctx2.font = '14px Helvetica';
-        ctx2.fillText('Music On / Off:', 540, 18);
-        ctx2.drawImage(volumeIcon, 580, 24, 30, 30)
+        // [Cant Figure Out][WIP] Music "Button"
+        // ctx2.fillStyle = 'white';
+        // ctx2.font = '14px Helvetica';
+        // ctx2.fillText('Music On / Off:', 540, 18);
+        // ctx2.drawImage(volumeIcon, 580, 24, 30, 30)
 
 
         // [Draw Background]
@@ -124,11 +128,14 @@ function animate() {
             gameOver = true;
         }
 
-        // [TEST]
+        // [WORKS]
         handleGameStatus();
 
-        // [TEST]
+        // [WORKS]
         handleNewLevel();
+
+        // [TEST] game music - Game Over -> pause music
+        handleGameMusic();
 
         // [WORKS] doing this so "handleEnemies" happens 1st before game stops
         // -> stops animating AFTER the enemy = removed
