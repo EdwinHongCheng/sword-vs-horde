@@ -2,6 +2,18 @@ body {
   background-color: black;
 }
 
+/* Upper Canvas */
+#top-canvas {
+  width: 800px;
+  height: 60px;
+  background-color: black;
+  border: 1px solid red;
+  position: absolute;
+  top: 7%;
+  left: 50%;
+  transform: translate(-50%, -50%); 
+}
+
 /* Botton Canvas */
 #canvas1 {
   width: 800px;
@@ -13,14 +25,18 @@ body {
   transform: translate(-50%, -50%); 
 }
 
-/* Upper Canvas */
-#top-canvas {
-  width: 800px;
+/* [TEST] Mini Canvas (GitHub Links) */
+#github-canvas {
+  width: 60px;
   height: 60px;
-  background-color: black;
-  border: 1px solid red;
+  /* border: 1px solid blue; */
+  background-color: rgba(255, 0, 0, 1);
   position: absolute;
   top: 7%;
-  left: 50%;
+  left: 75%;
   transform: translate(-50%, -50%); 
+}
+
+#github-canvas:hover {
+  cursor: pointer;
 }
