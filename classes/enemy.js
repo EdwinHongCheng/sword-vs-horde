@@ -1,29 +1,29 @@
 let canvasWidth = 800;
 let canvasHeight = 500;
 
-// [TEST] enemy sprites
-const enemyTypes = [];
+// [WORKS] enemy sprites
+let enemyTypes = [];
 const redSlime = new Image();
 redSlime.src = "./images/enemies/red_slime.png";
 enemyTypes.push(redSlime);
 
 // [WORKS] other color slime sprite (Blue, Green, Gray)
-// const blueSlime = new Image();
-// blueSlime.src = "./images/enemies/blue_slime.png";
+const blueSlime = new Image();
+blueSlime.src = "./images/enemies/blue_slime.png";
 // enemyTypes.push(blueSlime);
 
-// const greenSlime = new Image();
-// greenSlime.src = "./images/enemies/green_slime.png";
+const greenSlime = new Image();
+greenSlime.src = "./images/enemies/green_slime.png";
 // enemyTypes.push(greenSlime);
 
-// const graySlime = new Image();
-// graySlime.src = "./images/enemies/gray_slime.png";
+const graySlime = new Image();
+graySlime.src = "./images/enemies/gray_slime.png";
 // enemyTypes.push(graySlime);
 
 
 class Enemy {
     // [NOTE] can enter higher speeds later
-    constructor(x, y, speed = 5){
+    constructor(x, y, speed = enemySpeed){
         // [NOTE] "x - 17" cuz Enemy hitbox is 16px (so, 16 + 1 = 17)
         this.x = x;
         this.y = y;
@@ -35,7 +35,6 @@ class Enemy {
         this.hitboxX = 16;
         this.hitboxY = 16;
 
-        // [OLD] Randomized Speed: this.speed = Math.random() * 0.5 + 1;
         this.speed = speed;
         this.movementX = this.speed;
         this.movementY = this.speed;

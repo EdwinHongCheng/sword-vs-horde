@@ -23,6 +23,13 @@ window.addEventListener("keydown", function(e) {
         score = 0;
         winningScore = 10;
         enemiesInterval = 50;
+
+        // [TEST] new additions to reset game correctly ------>
+        enemySpeed = 5
+        enemyTypes = [];
+        enemyTypes.push(redSlime);
+        // -------------------------->
+
         restartLevel();
     }
 });

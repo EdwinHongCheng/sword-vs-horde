@@ -23,16 +23,16 @@ let beatEntireGame = false;
 let pauseGame = false;
 
 
-
-
 // *** [WIP] current Level 1 settings
 let frame = 0;
 let timer = 0;
-// [TEST] beatLevel = true -> can have "new_level.js" invoke "Level 1" message
+// [NOTE] beatLevel = true -> can have "new_level.js" invoke "Level 1" message
 let beatLevel = true;
 let score = 0;
-let winningScore = 10;
-let enemiesInterval = 50;
+// [NOTE] these vars are defined soon by "levelMod()" (level_mods.js)
+let winningScore;
+let enemiesInterval;
+let enemySpeed;
 
 
 const background = new Image();
@@ -76,15 +76,8 @@ function animate() {
     frame++;
     if (!gameOver && !stopGame && !pauseGame) requestAnimationFrame(animate);
 
-    if (currentLevel === 2) {
-        winningScore = 20;
-        enemiesInterval = 40;
-    }
-
-    if (currentLevel === 3) {
-        winningScore = 30;
-        enemiesInterval = 20;
-    }
+    // [WORKS] from "level_mods.js" - modify level based on Current Level
+    levelMod();
 
     now = Date.now();
     elapsed = now - then;

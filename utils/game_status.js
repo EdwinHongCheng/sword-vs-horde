@@ -50,7 +50,7 @@ function handleGameStatus(){
         ctx.font = '40px Times New Roman';
         ctx.fillText('- Press Space to Try Again -', 173, 400);
 
-    } else if (score >= winningScore && currentLevel === 3){
+    } else if (score >= winningScore && currentLevel === 5){
         // [WORKS] opacity bar for "You Win"
         ctx.globalAlpha = 0.5;
         ctx.fillStyle = 'black';
