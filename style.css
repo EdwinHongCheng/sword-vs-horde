@@ -40,4 +40,7 @@ body {
 
 #github-canvas:hover {
   cursor: pointer;
+  border-top: 3px solid white;
+  border-bottom: 3px solid white;
+  background-color: white;
 }
