@@ -2,7 +2,7 @@
 
 function handleNewLevel(){
     if (beatLevel && timer < 40) {
-        ctx.fillStyle = 'black';
+        ctx.fillStyle = 'white';
         ctx.font = '60px Times New Roman';
         ctx.fillText('Level ' + currentLevel, 305, 70);
 

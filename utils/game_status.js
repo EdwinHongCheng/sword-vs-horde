@@ -31,7 +31,7 @@ function handleGameStatus(){
         ctx.fillText('- Press Space to Try Again -', 173, 400);
 
     } else if (score >= winningScore && currentLevel === 3){
-        ctx.fillStyle = 'black';
+        ctx.fillStyle = 'white';
         ctx.font = '90px Times New Roman';
         ctx.fillText('YOU WIN!', 192, 100);
         
