@@ -3,12 +3,27 @@ let canvasHeight = 500;
 
 // [TEST] enemy sprites
 const enemyTypes = [];
-const enemy1 = new Image();
-enemy1.src = "./images/enemy.png";
-enemyTypes.push(enemy1);
+const redSlime = new Image();
+redSlime.src = "./images/enemies/red_slime.png";
+enemyTypes.push(redSlime);
+
+// [WORKS] other color slime sprite (Blue, Green, Gray)
+// const blueSlime = new Image();
+// blueSlime.src = "./images/enemies/blue_slime.png";
+// enemyTypes.push(blueSlime);
+
+// const greenSlime = new Image();
+// greenSlime.src = "./images/enemies/green_slime.png";
+// enemyTypes.push(greenSlime);
+
+// const graySlime = new Image();
+// graySlime.src = "./images/enemies/gray_slime.png";
+// enemyTypes.push(graySlime);
+
 
 class Enemy {
-    constructor(x, y){
+    // [NOTE] can enter higher speeds later
+    constructor(x, y, speed = 5){
         // [NOTE] "x - 17" cuz Enemy hitbox is 16px (so, 16 + 1 = 17)
         this.x = x;
         this.y = y;
@@ -20,14 +35,14 @@ class Enemy {
         this.hitboxX = 16;
         this.hitboxY = 16;
 
-        // this.speed = Math.random() * 0.5 + 1;
-        this.speed = 5;
+        // [OLD] Randomized Speed: this.speed = Math.random() * 0.5 + 1;
+        this.speed = speed;
         this.movementX = this.speed;
         this.movementY = this.speed;
         this.health = 100;
 
-        // [TEST]
-        this.enemyType = enemyTypes[0];
+        // [WORKS] Randomizing Enemy Sprite
+        this.enemyType = enemyTypes[Math.floor(Math.random() * enemyTypes.length)];
         this.frameX = 0;
         this.frameY = 0;
         this.minFrame = 0;
@@ -38,10 +53,9 @@ class Enemy {
 
     // [WORKS] Bounces squares on all 4 sides
     update(){
-        // [TEST] animation
+        // [WORKS] animation
         if (this.frameX < this.maxFrame) this.frameX++;
         else this.frameX = this.minFrame;
-
 
         // [NOTE] checks X sides (left + right walls)
         if (this.x <= 0 || this.x + this.width >= canvasWidth) {
@@ -61,10 +75,6 @@ class Enemy {
     }
 
     draw(){
-        // [TEST] ctx.rect(x, y, width, height);        
-        // ctx.fillStyle = "red";
-        // ctx.fillRect(this.x, this.y, this.width, this.height);
-
         // ctx.drawImage(img, sx, sy, sw, sh, dx, dy, dw, dh)
         ctx.drawImage(this.enemyType, 
             this.frameX * this.spriteWidth, 0, this.spriteWidth, this.spriteHeight,
@@ -73,31 +83,30 @@ class Enemy {
     }
 }
 
-
-// [TEST] handle enemies array - remove enemy if attacked?
+// [WORKS] handle enemies array - remove enemy if attacked
 function handleEnemies(){
     for (let i = 0; i < enemies.length; i++){
         enemies[i].update();
         enemies[i].draw();
 
-         // * [TURNED OFF FOR TESTING] Collision w Village = Game Over
+         // * Collision w Village = Game Over
         if (enemies[i] && collision3(village, enemies[i])) {
             gameOver = true; 
         }
 
-        // * [TURNED OFF FOR TESTING] Collision w Player = Game Over
+        // * Collision w Player = Game Over
         if (enemies[i] && collision3(player, enemies[i])) {
             gameOver = true;
         }
 
-        // [TEST] take enemy out if player just beat a level
-        // - this doesn't increment score
+        // [WORKS] take all enemies out if player just beat a level
+        // - Note: this doesn't increment score
         if (beatLevel || beatEntireGame)  {
             enemies.splice(i, 1);
             i--;
         }
 
-        // Note: takes enemy out if enemy health = 0
+        // [Note] takes enemy out if enemy health = 0
         if (enemies[i] && enemies[i].health <= 0){
             score += 1;
             enemies.splice(i, 1);
@@ -105,13 +114,12 @@ function handleEnemies(){
         }
     }
 
-    // [TEST] spawn enemy at interval
-    // - decide Spawn Point here (WIP)
+    // [WORKS] spawn enemy at interval
+    // - decide Spawn Point here (can change later)
     if (frame % enemiesInterval === 0 && !beatLevel && !beatEntireGame) {
         verticalPosition = 100;
 
         // [NOTE] canvas.width = 800; canvas.height = 500;
-
         // [NOTE] Enemy = 32x32 -> using +/- 33 px
         let randomPosPair = [
             // Spawns at Right side
@@ -138,5 +146,4 @@ function handleEnemies(){
     };
 };
 
-// [NOTE]
 let enemies = [];
