@@ -50,12 +50,17 @@ body {
 
 #bottom-text {
   font-family: Helvetica;
+  font-size: 16px;
   position: absolute;
   top: 92%;
-  left: 75%;
+  left: 50%;
   transform: translate(-50%, -50%);
 }
 
-.github-link, .linkedin-link .angellist-link {
-  color: white
+.linkedin-link, .github-link, .angellist-link {
+  color: white;
+}
+
+.linkedin-link, .github-link {
+  margin-right: 20px;
 }
