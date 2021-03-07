@@ -31,7 +31,7 @@ window.addEventListener("keydown", function(e) {
         // [Controls]
 
         ctx.font = '30px Helvetica';
-        ctx.fillText('Buttons', 348, 265);
+        ctx.fillText('Controls', 348, 265);
 
         ctx.font = '20px Helvetica';
         ctx.fillText('Up / Left / Down / Right :   W / A / S / D', 20, 310);

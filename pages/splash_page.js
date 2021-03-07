@@ -1,3 +1,5 @@
+// [NOTE] Instructions Page in "gamestate.js"
+
 // [WORKS] Top Canvas (Nav Bar)
 // [NOTE] depends on "script.js" - which already has defined ctx2
 
