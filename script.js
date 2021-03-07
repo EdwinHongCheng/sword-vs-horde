@@ -39,8 +39,11 @@ const background = new Image();
 background.src = "./images/grass2.png";
 
 
+const volumeIcon = new Image();
+volumeIcon.src = "./images/volumeIcon.png";
 
-// [TEST] Music Pause/Play
+
+// [WORKS] Music Pause/Play
 let playingMusic = false;
 
 // ---------------------------------------------------------------------------->
@@ -88,6 +91,15 @@ function animate() {
 
         // [WORKS] clears top Canvas -> lets "Slain" score update
         ctx2.clearRect(0, 0, topCanvas.width, topCanvas.height);
+
+
+
+        // [WIP][WORKS] Play/Pause Button
+        ctx2.fillStyle = 'white';
+        ctx2.font = '14px Helvetica';
+        ctx2.fillText('Music On / Off:', 540, 18);
+        ctx2.drawImage(volumeIcon, 580, 24, 30, 30)
+
 
         // [Draw Background]
         ctx.drawImage(background, 0, 0, canvas.width, canvas.height);

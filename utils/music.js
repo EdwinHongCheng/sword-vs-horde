@@ -6,12 +6,16 @@ gameMusic.addEventListener('ended', function() {
   this.play();
 }, false);
 
+// ----------------------->
 
-// [WORKS] Pause/Play Music (current: Space Bar)
+// [WIP] Goal: have a "button" in Top Canvas -> click pauses/plays music
+
+// [WORKS] Pause/Play Music
 let pauseMusic = false;
 
 window.addEventListener('keydown', function(e) {
-  if (e.keyCode === 32) {
+  // "T" = keyCode 84
+  if (e.keyCode === 84) {
     pauseMusic = !pauseMusic;
     if (pauseMusic) {
     gameMusic.pause();
@@ -20,6 +24,10 @@ window.addEventListener('keydown', function(e) {
     }
   }
 });
+
+// [WIP] Goal: use Restart
+// - Game Over/Beat Game -> pause Music + reset current time
+// - Restart Level -> play music again
 
 // [WORKS] Restart Music - KEY = "Y"
 window.addEventListener('keydown', function(e) {
