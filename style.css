@@ -45,3 +45,17 @@ body {
   border-top: 3px solid white;
   border-bottom: 3px solid white;
 }
+
+/* [TEST] Bottom Links */
+
+#bottom-text {
+  font-family: Helvetica;
+  position: absolute;
+  top: 92%;
+  left: 75%;
+  transform: translate(-50%, -50%);
+}
+
+.github-link, .linkedin-link .angellist-link {
+  color: white
+}
