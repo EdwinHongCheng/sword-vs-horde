@@ -25,12 +25,13 @@ body {
   transform: translate(-50%, -50%); 
 }
 
-/* [WORKS] Mini Canvas (GitHub Links) */
+/* [WORKS] GitHub Project Link  */
 #github-canvas {
   width: 60px;
   height: 60px;
-  border: 1px solid rgb(177, 177, 177);
-  background-color: rgb(177, 177, 177);
+  border-top: 3px solid rgb(201, 201, 201);
+  border-bottom: 3px solid rgb(201, 201, 201);
+  background-color: rgb(201, 201, 201);
   position: absolute;
   top: 7%;
   left: 75%;
