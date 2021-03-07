@@ -138,5 +138,22 @@ function animate() {
             movePlayer();
             handlePlayerFrame();
         }
+
+        // [TEST]
+        if (pauseGame) {
+            // [WORKS] opacity for Pause Screen
+            ctx.globalAlpha = 0.5;
+            ctx.fillStyle = 'black';
+            ctx.fillRect(225, 100, 350, 200);
+            // set opacity back to 1 after
+            ctx.globalAlpha = 1;
+            
+            ctx.fillStyle = 'white';
+            ctx.font = '20px Helvetica';
+            ctx.fillText('- Paused -', 352, 140);
+            ctx.fillText('Resume Game:   F', 250, 190); 
+            ctx.fillText('Movement:   W / A / S / D', 250, 230); 
+            ctx.fillText('Attack:   K     Dash:   L', 250, 270);
+        }
     }
 }

@@ -5,6 +5,7 @@ window.addEventListener("keydown", function(e) {
     if (e.keyCode === 70 && currentState === 2 && !gameOver) {
         pauseGame = !pauseGame;
 
+        // [NOTE] duped this code in animate() -> works consistently now
         if (pauseGame) {
             // [WORKS] opacity for Pause Screen
             ctx.globalAlpha = 0.5;
