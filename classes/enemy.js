@@ -79,30 +79,27 @@ function handleEnemies(){
     for (let i = 0; i < enemies.length; i++){
         enemies[i].update();
         enemies[i].draw();
-        
 
          // * [TURNED OFF FOR TESTING] Collision w Village = Game Over
-        if (collision3(village, enemies[i])) {
+        if (enemies[i] && collision3(village, enemies[i])) {
             gameOver = true; 
         }
 
         // * [TURNED OFF FOR TESTING] Collision w Player = Game Over
-        if (collision3(player, enemies[i])) {
+        if (enemies[i] && collision3(player, enemies[i])) {
             gameOver = true;
-        }
-
-
-        // Note: takes enemy out if enemy health = 0
-
-        if (enemies[i] && enemies[i].health <= 0){
-            score += 1;
-            enemies.splice(i, 1);
-            i--;
         }
 
         // [TEST] take enemy out if player just beat a level
         // - this doesn't increment score
         if (beatLevel || beatEntireGame)  {
+            enemies.splice(i, 1);
+            i--;
+        }
+
+        // Note: takes enemy out if enemy health = 0
+        if (enemies[i] && enemies[i].health <= 0){
+            score += 1;
             enemies.splice(i, 1);
             i--;
         }

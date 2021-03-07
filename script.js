@@ -16,19 +16,17 @@ canvas.height = 500;
 
 
 let gameOver = false;
-// let stopGameSoon = false;
 let stopGame = false;
 let beatEntireGame = false;
 
 // [TEST] Pause/Resume functionality
 let pauseGame = false;
-let animateLoopDone = false;
 
 
 // *** [WIP] current Level 1 settings
 let frame = 0;
 let timer = 0;
-// [TEST] beatLevel = true -> can have "timer.js" invoke "Level 1" message
+// [TEST] beatLevel = true -> can have "new_level.js" invoke "Level 1" message
 let beatLevel = true;
 let score = 0;
 let winningScore = 10;
