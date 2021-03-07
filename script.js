@@ -19,8 +19,10 @@ let gameOver = false;
 let stopGame = false;
 let beatEntireGame = false;
 
-// [TEST] Pause/Resume functionality
+// [WORKS] Pause/Resume functionality
 let pauseGame = false;
+
+
 
 
 // *** [WIP] current Level 1 settings
@@ -38,6 +40,9 @@ background.src = "./images/grass2.png";
 
 
 
+// [TEST] Music Pause/Play
+let playingMusic = false;
+
 // ---------------------------------------------------------------------------->
 
 // s = source X, Y, width, height
@@ -49,6 +54,11 @@ function drawSprite(img, sX, sY, sW, sH, dX, dY, dW, dH) {
 let fps, fpsInterval, startTime, now, then, elapsed;
 
 function startAnimating(fps) {
+    if (!playingMusic) {
+        gameMusic.play();
+        playingMusic = true;
+    }
+
     fpsInterval = 1000/fps;
     then = Date.now();
     startTime = then;
