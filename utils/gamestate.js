@@ -39,7 +39,15 @@ window.addEventListener("keydown", function(e) {
         ctx.fillText('Teleport Dash :   L', 20, 400);
         ctx.fillText('Pause / Resume Game :   F', 20, 440);
 
-        // ["Press Any Key to Start" Line]
+
+        // [WORKS] opacity bar for "Press Space to Start"
+        ctx.globalAlpha = 0.5;
+        ctx.fillStyle = 'red';
+        ctx.fillRect(0, 462, 800, 38);
+        ctx.globalAlpha = 1;
+
+        // ["Press Space to Start" Line]
+        ctx.fillStyle = 'white';
         ctx.font = '26px Helvetica';
         ctx.fillText('- Press Space to Start the Battle -', 210, 490);
 

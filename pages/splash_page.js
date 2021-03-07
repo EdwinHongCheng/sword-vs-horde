@@ -15,6 +15,12 @@ intro_bg.onload = function() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.drawImage(intro_bg, 0, 0, 800, 450);
 
+    // [WORKS] opacity bar for "Press Space to Continue"
+    ctx.globalAlpha = 0.5;
+    ctx.fillStyle = 'red';
+    ctx.fillRect(0, 462, 800, 38);
+    ctx.globalAlpha = 1;
+
     ctx.fillStyle = 'white';
     ctx.font = '26px Helvetica';
     ctx.fillText('- Press Space to Continue -', 240, 490);
