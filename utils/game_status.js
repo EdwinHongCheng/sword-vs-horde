@@ -26,6 +26,20 @@ function handleGameStatus(){
 
         beatLevel = false;
 
+
+        // [1.] opacity bar for "Game Over"
+        ctx.globalAlpha = 0.5;
+        ctx.fillStyle = 'black';
+        ctx.fillRect(0, 20, 800, 100);
+        // - set opacity back to 1 after
+        ctx.globalAlpha = 1;
+        // [2.] opacity bar for "Try Again"
+        ctx.globalAlpha = 0.5;
+        ctx.fillStyle = 'black';
+        ctx.fillRect(0, 350, 800, 80);
+        // - set opacity back to 1 after
+        ctx.globalAlpha = 1;
+
         ctx.fillStyle = 'red';
         // ctx.font = '90px Helvetica';
         ctx.font = '90px Times New Roman';
