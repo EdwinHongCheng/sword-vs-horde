@@ -7,7 +7,7 @@ gameMusic.addEventListener('ended', function() {
 }, false);
 
 
-// [WORKS] Pause/Play Music
+// [WORKS] Mute/Unmute Music
 window.addEventListener('keydown', function(e) {
   // "G" = keyCode 71
   if (e.keyCode === 71 && currentState === 2 && !gameOver && !pauseGame) {
