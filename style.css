@@ -26,9 +26,10 @@ body {
 }
 
 /* [WORKS] GitHub Project Link  */
+/* [NOTE] can readjust width + height. max = 60x60 px */
 #github-canvas {
-  width: 60px;
-  height: 60px;
+  width: 36px;
+  height: 36px;
   position: absolute;
   top: 7%;
   left: 75%;
