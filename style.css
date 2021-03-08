@@ -63,6 +63,10 @@ body {
   text-decoration: none;
 }
 
+.linkedin-link:hover, .github-link:hover, .angellist-link:hover {
+  color: rgb(255, 0, 0, 0.8);
+}
+
 .vertical-line {
   color: white;
   font-size: 20px;
