@@ -58,11 +58,13 @@ body {
   transform: translate(-50%, -50%);
 }
 
-.linkedin-link, .github-link, .angellist-link, .vertical-line {
+.linkedin-link, .github-link, .angellist-link {
   color: white;
+  text-decoration: none;
 }
 
 .vertical-line {
+  color: white;
   font-size: 20px;
   margin-left: 12px;
   margin-right: 12px;
