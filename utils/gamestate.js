@@ -51,15 +51,15 @@ window.addEventListener("keydown", function(e) {
         ctx.font = '26px Helvetica';
         ctx.fillText('- Press Space to Start the Battle -', 210, 490);
 
+        // [WORKS] animated Campfire
+        animateCampfire()
 
-        let campfire = new Image();
-        campfire.src = "./images/campfire.png";
-
-        campfire.onload = function() {
-            // [NOTE] ctx.drawImage(image, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight);
-            // - modify dx + dy for position on canvas (current: 540, 180)
-            ctx.drawImage(campfire, 0, 0, 256, 280, 540, 180, 256, 280);
-        }
+        // [Old] for 1 Frame of Campfire
+        // campfire.onload = function() {
+        //     // [NOTE] ctx.drawImage(image, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight);
+        //     // - modify dx + dy for position on canvas (current: 540, 180)
+        //     ctx.drawImage(campfire, (256 * campfireFrameX), 0, 256, 280, 540, 180, 256, 280);
+        // }
 
         // [WORKS] Space to Start Game
     } else if (currentState === 1 && e.keyCode === 32) {
@@ -73,3 +73,24 @@ window.addEventListener("keydown", function(e) {
         currentState = states.Playing;
     }
 });
+
+
+let campfire = new Image();
+campfire.src = "./images/campfire.png";
+let campfireFrameX = 0;
+let campfireTimer = 0;
+
+function animateCampfire() {
+    if (currentState === 1) requestAnimationFrame(animateCampfire);
+    campfireTimer += 1;
+
+    // [NOTE] campfireTimer % X - can increase X to make fire slower
+    if (campfireTimer % 5 === 0) {
+        if (campfireFrameX < 9) campfireFrameX += 1;
+        else campfireFrameX = 0;
+
+        ctx.clearRect(540, 180, 256, 280);
+        // - modify dx + dy for position on canvas (current: 540, 180)
+        ctx.drawImage(campfire, (256 * campfireFrameX), 0, 256, 280, 540, 180, 256, 280);
+    }
+}
