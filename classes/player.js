@@ -125,6 +125,7 @@ function movePlayer() {
     }
 
     // * [WORKS] Sends Player back to Prev Location if Touching Village
+    // - [IF NOT]: ALWAYS UPDATES player's previous location
     if (collision3(village, player)) {
         player.x = player.prevX;
         player.y = player.prevY;
