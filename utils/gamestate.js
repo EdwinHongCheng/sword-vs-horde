@@ -21,23 +21,23 @@ window.addEventListener("keydown", function(e) {
         ctx.fillStyle = 'white';
 
         ctx.font = '30px Helvetica';
-        ctx.fillText('- Instructions -', 305, 50);
+        ctx.fillText('- Instructions -', 305, 60);
         ctx.font = '20px Helvetica';
         // [Blurb]
-        ctx.fillText('Protect the village from the evil slime horde!', 180, 105);
-        ctx.fillText('Vanquish them all with thy trusty flame sword!', 180, 145);
+        ctx.fillText('Protect the village from the evil slime horde!', 180, 110);
+        ctx.fillText('Vanquish them all with thy trusty flame sword!', 180, 155);
         // ctx.fillText('Do not attempt to run back home.', 20, 180);
         // ctx.fillText('The battle waits for you alone.', 20, 220);
 
         // [Controls]
         ctx.font = '30px Helvetica';
-        ctx.fillText('- Controls -', 326, 220);
+        ctx.fillText('- Controls -', 326, 230);
 
         ctx.font = '20px Helvetica';
-        ctx.fillText('Up / Left / Down / Right :   W / A / S / D', 180, 275);
-        ctx.fillText('Flame Sword Strike :   K', 180, 315);
-        ctx.fillText('Teleport Dash :   L', 180, 355);
-        ctx.fillText('Pause / Resume Game :   F', 180, 395);
+        ctx.fillText('Up / Left / Down / Right :   W / A / S / D', 180, 280);
+        ctx.fillText('Flame Sword Strike :   K', 180, 325);
+        ctx.fillText('Teleport Dash :   L', 180, 370);
+        ctx.fillText('Pause / Resume Game :   F', 180, 415);
 
 
         // [WORKS] opacity bar for "Press Space to Start"
