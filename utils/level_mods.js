@@ -1,6 +1,10 @@
 // [TEST] works w script.js - animate()
 function levelMod() {
-    if (currentLevel === 1) {
+    if (currentLevel === 0) {
+        winningScore = 5;
+        enemiesInterval = 50;
+        enemySpeed = 4;
+    } else if (currentLevel === 1) {
         winningScore = 10;
         enemiesInterval = 50;
         enemySpeed = 5;

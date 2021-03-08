@@ -6,7 +6,7 @@ topCanvas.height = 60;
 
 
 // [WORKS] Different Levels
-let currentLevel = 1;
+let currentLevel = 0;
 
 // [MAIN CANVAS]
 const canvas = document.getElementById('canvas1');
