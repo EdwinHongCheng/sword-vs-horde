@@ -61,9 +61,9 @@ window.addEventListener("keydown", function(e) {
 
         // [WORKS] Space to Start Game
     } else if (currentState === 1 && e.keyCode === 32) {
-        // [WORKS] applies "display: none" to my GitHub icon
+        // [removed][WORKS] applies "display: none" to my GitHub icon
         // document.getElementById("github-canvas").style.display = "none";
-        document.getElementById("github-canvas").style.left = "50%";
+        // document.getElementById("github-canvas").style.left = "50%";
 
         // [Current] 20 FPS = pretty good imo
         startAnimating(20);
