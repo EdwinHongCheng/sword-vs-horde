@@ -21,23 +21,23 @@ window.addEventListener("keydown", function(e) {
         ctx.fillStyle = 'white';
 
         ctx.font = '30px Helvetica';
-        ctx.fillText('Instructions', 324, 50);
+        ctx.fillText('- Instructions -', 305, 50);
         ctx.font = '20px Helvetica';
         // [Blurb]
-        ctx.fillText('Protect the village from the evil slime horde!', 20, 100);
-        ctx.fillText('Vanquish them all with thy trusty flame sword!', 20, 140);
-        ctx.fillText('Do not attempt to run back home.', 20, 180);
-        ctx.fillText('The battle waits for you alone.', 20, 220);
-        // [Controls]
+        ctx.fillText('Protect the village from the evil slime horde!', 180, 105);
+        ctx.fillText('Vanquish them all with thy trusty flame sword!', 180, 145);
+        // ctx.fillText('Do not attempt to run back home.', 20, 180);
+        // ctx.fillText('The battle waits for you alone.', 20, 220);
 
+        // [Controls]
         ctx.font = '30px Helvetica';
-        ctx.fillText('Controls', 348, 265);
+        ctx.fillText('- Controls -', 326, 220);
 
         ctx.font = '20px Helvetica';
-        ctx.fillText('Up / Left / Down / Right :   W / A / S / D', 20, 310);
-        ctx.fillText('Flame Sword Strike :   K', 20, 350);
-        ctx.fillText('Teleport Dash :   L', 20, 390);
-        ctx.fillText('Pause / Resume Game :   F', 20, 430);
+        ctx.fillText('Up / Left / Down / Right :   W / A / S / D', 180, 275);
+        ctx.fillText('Flame Sword Strike :   K', 180, 315);
+        ctx.fillText('Teleport Dash :   L', 180, 355);
+        ctx.fillText('Pause / Resume Game :   F', 180, 395);
 
 
         // [WORKS] opacity bar for "Press Space to Start"
@@ -56,7 +56,9 @@ window.addEventListener("keydown", function(e) {
         campfire.src = "./images/campfire.png";
 
         campfire.onload = function() {
-            ctx.drawImage(campfire, 0, 0, 256, 280, 520, 160, 256, 280);
+            // [NOTE] ctx.drawImage(image, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight);
+            // - modify dx + dy for position on canvas (current: 540, 180)
+            ctx.drawImage(campfire, 0, 0, 256, 280, 540, 180, 256, 280);
         }
 
         // [WORKS] Space to Start Game
