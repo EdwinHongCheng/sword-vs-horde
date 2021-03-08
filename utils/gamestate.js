@@ -51,7 +51,7 @@ window.addEventListener("keydown", function(e) {
         ctx.font = '26px Helvetica';
         ctx.fillText('- Press Space to Start the Battle -', 210, 490);
 
-        // [WORKS] animated Campfire
+        // [WORKS] Animate Campfire Function
         animateCampfire()
 
         // [Old] for 1 Frame of Campfire
@@ -74,7 +74,7 @@ window.addEventListener("keydown", function(e) {
     }
 });
 
-
+// [WORKS] Animate Campfire Function ----------------------------------------->
 let campfire = new Image();
 campfire.src = "./images/campfire.png";
 let campfireFrameX = 0;
