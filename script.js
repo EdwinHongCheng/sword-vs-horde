@@ -58,6 +58,8 @@ let fps, fpsInterval, startTime, now, then, elapsed;
 
 function startAnimating(fps) {
     if (!playingMusic) {
+        // [WORKS] sets Music Volume (even after replaying/muting/pausing)
+        gameMusic.volume = 0.4;
         gameMusic.play();
         playingMusic = true;
     // [WORKS] resumes music after pausing screen (works w "pause_game.js")
