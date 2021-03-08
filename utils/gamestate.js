@@ -1,6 +1,3 @@
-/// [WIP] need to make Splash Page + Instructions Page
-// -> add it to the "window.addEventListener" below
-
 let states = { 
     Menu: 0,
     Instructions: 1,
@@ -9,10 +6,8 @@ let states = {
 
 let currentState = states.Menu;
 
-
-// [NOTE] make it so click only works once
 window.addEventListener("keydown", function(e) {
-    // [TEST Space to got to Instructions]
+    // [Press Space to go to Instructions]
     if (currentState === 0 && e.keyCode === 32) {
         currentState = states.Instructions;
 
