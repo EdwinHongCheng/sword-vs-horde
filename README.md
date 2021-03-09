@@ -2,7 +2,7 @@
 
 [Play Sword vs Horde!](https://edwinhongcheng.github.io/sword-vs-horde/)
 
-Sword vs Horde is a top-down hack and slash game where the player defends a village from an evil horde of slimes. To progress to the next level, the player must slay a set amount of slimes with the swordsman's flame sword attack.
+Sword vs Horde is a top-down hack-and-slash game where the player defends a village from an evil horde of slimes. To progress to the next level, the player must slay a set amount of slimes with the swordsman's flame sword attack.
 
 This game is implemented with JavaScript, and uses HTML5 Canvas API to render all visual components and HTML5 Audio element for background music.
 
@@ -10,7 +10,9 @@ This game is implemented with JavaScript, and uses HTML5 Canvas API to render al
 
 ## Gameplay
 
-The player controls a swordsman's movements and attack with the keyboard keys. A village is placed at the very center of the map, and the player must guard it from incoming slimes. Slimes will randomly spawn from one of eight spawn points, and will bounce around the screen until they hit the village, the swordsman gets hit by the slime, or the swordsman successfully attacks the slimes. To beat the game, the player must have a constant awareness of the bouncing slimes' trajectories, and perform precise movements to weave through the slimes and slay them before they touch the village.
+The player controls a swordsman's movements and attack with the keyboard keys. A village is placed at the very center of the map, and the player must guard it from incoming slimes. Slimes will randomly spawn from one of eight spawn points. They'll bounce around the screen until they hit the village, the swordsman gets hit by them, or the swordsman successfully slays them. 
+
+To beat the game, the player must have a constant awareness of the bouncing slimes' trajectories, and perform precise movements to weave through the slimes and slay them before they touch the village.
 
 ![SvH_gameplay_gif](https://github.com/EdwinHongCheng/sword-vs-horde/blob/main/demo_files/svh_gameplay.gif)
 
@@ -153,4 +155,6 @@ function levelMod() {
 Currently, enemies spawn faster and move quicker as the level increases. To add more gameplay variety, enemies with different abilities can be added in the game, such as bigger slimes which split off into smaller slimes when defeated.
 
 ### Endless Level Mode
-"Sword vs Horde" only has 5 levels, so an alternate endless level mode could be implemented. For this mode, the player attempts to slay as many slimes as possible before being overrun by them. Enemy spawn rate and movement speed will be increased after a set amount of time or set amount of slimes slain. Also, boss enemies could periodically appear for an extra challenge.
+"Sword vs Horde" only has 5 levels, so an alternate endless level mode could be implemented. 
+
+For this mode, the player attempts to slay as many slimes as possible before being overrun by them. Enemy spawn rate and movement speed will be increased after a set amount of time or set amount of slimes slain. Also, boss enemies could periodically appear for an extra challenge.
