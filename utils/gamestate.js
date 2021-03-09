@@ -60,8 +60,8 @@ window.addEventListener("keydown", function(e) {
         // [Old] for 1 Frame of Campfire
         // campfire.onload = function() {
         //     // [NOTE] ctx.drawImage(image, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight);
-        //     // - modify dx + dy for position on canvas (current: 540, 180)
-        //     ctx.drawImage(campfire, (256 * campfireFrameX), 0, 256, 220, 540, 180, 256, 220);
+        //     // - modify dx + dy for position on canvas (current: 540, 200)
+        //     ctx.drawImage(campfire, (256 * campfireFrameX), 0, 256, 220, 540, 200, 256, 220);
         // }
 
         // [WORKS] Space to Start Game
@@ -93,7 +93,7 @@ function animateCampfire() {
         else campfireFrameX = 0;
 
         ctx.clearRect(540, 180, 256, 220);
-        // - modify dx + dy for position on canvas (current: 540, 180)
-        ctx.drawImage(campfire, (256 * campfireFrameX), 0, 256, 220, 540, 180, 256, 220);
+        // - modify dx + dy for position on canvas (current: 540, 200)
+        ctx.drawImage(campfire, (256 * campfireFrameX), 0, 256, 220, 540, 200, 256, 220);
     }
 }
