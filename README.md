@@ -4,7 +4,7 @@
 
 Sword vs Horde is a top-down hack and slash game where the player defends a village from an evil horde of slimes. To progress to the next level, the player must slay a set amount of slimes with the swordsman's flame sword attack.
 
-This game is implemented with Javascript, and uses HTML5 Canvas API to render all visual components and HTML5 Audio element for background music.
+This game is implemented with JavaScript, and uses HTML5 Canvas API to render all visual components and HTML5 Audio element for background music.
 
 ![SvH_intro_screenshot](https://github.com/EdwinHongCheng/sword-vs-horde/blob/main/demo_files/intro_screenshot2.png)
 
