@@ -64,9 +64,6 @@ function animate() {
         // game music - Game Over -> pause music
         handleGameMusic();
 
-        // "handleEnemies" happens 1st before game stops -> stops animating AFTER the enemy ia removed
-        // if (stopGameSoon) stopGame = true;
-
         if (!beatEntireGame) {
             movePlayer();
             handlePlayerFrame();
