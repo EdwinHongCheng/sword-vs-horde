@@ -10,6 +10,8 @@ This game is implemented with Javascript, and uses HTML5 Canvas API to render al
 
 The player controls a swordsman's movements and attack with the keyboard keys. A village is placed at the very center of the map, and the player must guard it from incoming slimes. Slimes will randomly spawn from one of eight spawn points, and will bounce around the screen until they hit the village, the swordsman gets hit by the slime, or the swordsman successfully attacks the slimes. To beat the game, the player must have a constant awareness of the bouncing slimes' trajectories, and perform precise movements to weave through the slimes and slay them before they touch the village.
 
+![SvH_screenshot](https://github.com/EdwinHongCheng/sword-vs-horde/blob/main/demo_files/gameplay_screenshot.png)
+
 ## Implementation
 
 ### Game Rendering
