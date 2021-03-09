@@ -14,7 +14,7 @@ The player controls a swordsman's movements and attack with the keyboard keys. A
 
 ### Game Rendering
 
-An ```animate``` function is used to render the game, and is constantly looped to enable smooth control of the swordsman, spawn slimes' movements, and update the gamestate whether the a new level has been reached, the game ended, or if the player pauses the game.
+An ```animate``` function is used to render the game, and is constantly looped to enable smooth control of the swordsman, spawn slimes' movements, and update the gamestate whether the a new level has been reached, the game ended, or if the player pauses/resumes the game.
 
 ```js
 function animate() {
@@ -74,3 +74,79 @@ function animate() {
 }
 ```
 
+### Level Up
+After clearing the current level, a ```handleNewLevel``` function is used temporarily render a "Level X" message on-screen, and reset the current score back to zero. 
+
+```js
+function handleNewLevel(){
+    if (beatLevel && timer < 40) {
+
+        // opacity bar for "Level X" text
+        ctx.globalAlpha = 0.5;
+        ctx.fillStyle = 'black';
+        ctx.fillRect(0, 16, 800, 70);
+        ctx.globalAlpha = 1;
+
+        ctx.fillStyle = 'white';
+        ctx.font = '60px Times New Roman';
+        ctx.fillText('Level ' + currentLevel, 305, 70);
+
+        timer += 1;
+        if (score > 0) score = 0;
+
+    } else {
+        beatLevel = false;
+        timer = 0;
+    }
+}
+```
+
+This is used alongside the function ```levelMod```, which sets a winning score, enemy spawn interval, and enemy movement speed for each level. For levels 4 and 5, the ```enemyType``` array is reset and refilled to remove the red slimes, and to add in different-colored slimes to signify the drastic increase in difficulty.
+
+```js
+function levelMod() {
+    if (currentLevel === 0) {
+        winningScore = 5;
+        enemiesInterval = 50;
+        enemySpeed = 4;
+        
+    } else if (currentLevel === 1) {
+        winningScore = 10;
+        enemiesInterval = 50;
+        enemySpeed = 5;
+
+    } else if (currentLevel === 2) {
+        winningScore = 20;
+        enemiesInterval = 40;
+
+    } else if (currentLevel === 3) {
+        winningScore = 30;
+        enemiesInterval = 20;
+
+    // Level 4 will alternate between 2 new colors + increased speed
+    } else if (currentLevel === 4) {
+        winningScore = 40;
+        enemiesInterval = 20;
+        enemyTypes = [];
+        enemyTypes.push(blueSlime);
+        enemyTypes.push(graySlime);
+        enemySpeed = 6;
+
+    // [FINAL LEVEL] Green Slimes - camoflage + the fastest
+    } else if (currentLevel === 5) {
+        winningScore = 50;
+        enemiesInterval = 20;
+        enemyTypes = [];
+        enemyTypes.push(greenSlime);
+        enemySpeed = 7;
+    }
+}
+```
+
+## Future Improvements
+
+### Enemies with Unique Abilities
+Currently, enemies spawn faster and move quicker as the level increases. To add more gameplay variety, enemies with different abilities can be added in the game, such as bigger slimes which split off into smaller slimes when defeated.
+
+### Endless Level Mode
+"Sword vs Horde" only has 5 levels, but an alternate endless level mode can be implemented, in which the player tries to slay as many slimes as possible before being overrun by slimes. For this new mode, the enemy spawn rate and movement speed will have to be increased after a set amount of time or set amount of slimes slain. Also, boss enemies could periodically appear for an added challenge.
