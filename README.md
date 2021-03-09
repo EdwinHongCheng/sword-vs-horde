@@ -149,4 +149,4 @@ function levelMod() {
 Currently, enemies spawn faster and move quicker as the level increases. To add more gameplay variety, enemies with different abilities can be added in the game, such as bigger slimes which split off into smaller slimes when defeated.
 
 ### Endless Level Mode
-"Sword vs Horde" only has 5 levels, but an alternate endless level mode can be implemented, in which the player tries to slay as many slimes as possible before being overrun by slimes. For this new mode, the enemy spawn rate and movement speed will have to be increased after a set amount of time or set amount of slimes slain. Also, boss enemies could periodically appear for an added challenge.
+"Sword vs Horde" only has 5 levels, so an alternate endless level mode could be implemented. For this mode, the player attempts to slay as many slimes as possible before being overrun by them. Enemy spawn rate and movement speed will be increased after a set amount of time or set amount of slimes slain. Also, boss enemies could periodically appear for an extra challenge.
