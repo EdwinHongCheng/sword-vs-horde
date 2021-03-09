@@ -153,9 +153,9 @@ function animate() {
             ctx.font = '20px Helvetica';
             ctx.fillText('- Paused -', 352, 190);
             ctx.fillText('Resume Game:', 250, 240);
-            ctx.fillText('    F', 398, 240);  
+            ctx.fillText('F', 420, 240);  
             ctx.fillText('Movement:', 250, 280);
-            ctx.fillText('    W / A / S / D', 398, 280);
+            ctx.fillText('W / A / S / D', 420, 280);
             ctx.fillText('Attack:   K', 250, 320);
             ctx.fillText('Dash:   L', 420, 320);
         }
