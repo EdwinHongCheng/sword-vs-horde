@@ -142,22 +142,8 @@ function animate() {
         }
 
         if (pauseGame) {
-            // [WORKS] opacity for Pause Screen (duped ver of "pause_game.js")
-            ctx.globalAlpha = 0.6;
-            ctx.fillStyle = 'black';
-            ctx.fillRect(225, 150, 350, 200);
-            // set opacity back to 1 after
-            ctx.globalAlpha = 1;
-            
-            ctx.fillStyle = 'white';
-            ctx.font = '20px Helvetica';
-            ctx.fillText('- Paused -', 352, 190);
-            ctx.fillText('Resume Game:', 250, 240);
-            ctx.fillText('F', 420, 240);  
-            ctx.fillText('Movement:', 250, 280);
-            ctx.fillText('W / A / S / D', 420, 280);
-            ctx.fillText('Attack:   K', 250, 320);
-            ctx.fillText('Dash:   L', 420, 320);
+            // [from "pause_game.js"]
+            pauseScreen();
         }
     }
 }
