@@ -30,19 +30,19 @@ window.addEventListener("keydown", function(e) {
 
         ctx.font = '20px Helvetica';
         ctx.fillText('Up / Left / Down / Right', 180, 280);
-        ctx.fillText(':  W / A / S / D', 400, 280);
+        ctx.fillText(':   W / A / S / D', 400, 280);
 
         ctx.fillText('Flame Sword Strike', 180, 325);
-        ctx.fillText(':  K', 400, 325);
+        ctx.fillText(':   K', 400, 325);
 
         ctx.fillText('Teleport Dash', 180, 370);
-        ctx.fillText(':  L', 400, 370);
+        ctx.fillText(':   L', 400, 370);
 
         ctx.fillText('Pause / Resume Game', 180, 415);
-        ctx.fillText(':  F', 400, 415);
+        ctx.fillText(':   F', 400, 415);
 
 
-        
+
         // [WORKS] opacity bar for "Press Space to Start"
         ctx.globalAlpha = 0.5;
         ctx.fillStyle = 'red';
