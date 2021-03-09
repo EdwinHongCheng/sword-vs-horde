@@ -6,7 +6,7 @@ window.addEventListener("keydown", function(e) {
         pauseGame = !pauseGame;
 
         if (pauseGame) {
-            pauseScreen()
+            pauseScreen();
 
             // [WORKS] pause music if pausing game (also: script.js - startAnimating())
             pauseMusic = true;
