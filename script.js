@@ -57,9 +57,11 @@ function drawSprite(img, sX, sY, sW, sH, dX, dY, dW, dH) {
 let fps, fpsInterval, startTime, now, then, elapsed;
 
 function startAnimating(fps) {
+
+    // [TEST] Set Music Volume - trying 0.2 now (0.4 still too loud)
     if (!playingMusic) {
         // [WORKS] sets Music Volume (even after replaying/muting/pausing)
-        gameMusic.volume = 0.4;
+        gameMusic.volume = 0.2;
         gameMusic.play();
         playingMusic = true;
     // [WORKS] resumes music after pausing screen (works w "pause_game.js")
