@@ -57,7 +57,9 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
   
-  width: 252px;
+  /* width: 252px; */
+  width: 400px;
+  text-align: center;
 }
 
 .linkedin-link, .github-link, .angellist-link {
