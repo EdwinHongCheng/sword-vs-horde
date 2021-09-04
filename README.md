@@ -148,6 +148,9 @@ function levelMod() {
 
 ## Future Improvements
 
+### Charge Attack
+Holding down the attack button for a certain amount of time will trigger a "charge attack", which has a great Area of Effect, but will also leave the player unable to attack for a brief moment. This "charge attack" will increase the game's complexity, as the player must weigh the pros and cons of continuously attacking, as well as plan for optimal moments to launch their "charge attack".
+
 ### Enemies with Unique Abilities
 Currently, enemies spawn faster and move quicker as the level increases. To add more gameplay variety, enemies with different abilities can be added in the game, such as bigger slimes which split off into smaller slimes when defeated.
 
