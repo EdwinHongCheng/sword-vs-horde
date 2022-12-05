@@ -1,6 +1,6 @@
 # Sword vs Horde
 
-[Play Sword vs Horde!](https://edwinhongcheng.github.io/sword-vs-horde/)
+Live Link: [Play Sword vs Horde!](https://edwinhongcheng.github.io/sword-vs-horde/)
 
 Sword vs Horde is a top-down hack-and-slash game where the player defends a village from an evil horde of slimes. To progress to the next level, the player must slay a set amount of slimes with the swordsman's flame sword attack.
 
